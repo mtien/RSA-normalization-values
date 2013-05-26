@@ -127,7 +127,7 @@ for line in fileP:
                 phi=phi_list[i]
                 omega1=omega_list[i]
                 omega2=omega_list[i+1]
-                if(incompleteRes[i]==0):
+                if(incompleteRes[i]==0 and incompleteRes[i-1]==0 and incompleteRes[i+1]==0 and occ_list[i]==1 and occ_list[i-1]==1 and occ_list[i+1]==1):
                     ##5 std. away
                     if(d_list[i]<1.37 and d_list[i]>1.29):
                         Nterm= seq_list[i-1]
@@ -143,7 +143,7 @@ for line in fileP:
 
                     start=""
                     
-                    if(tri.find('-')== -1):
+                    if(tri.find('-')== -1 ):
                         start=tri+ "\t" + str(acc_list[i])+ "\t" + str(rsa_list[i]) + "\t" + IDChain + "\t"+ str(res_list[i]) + "\t" + str(occ_list[i]) +"\t"+ str(psi) +"\t"+ str(phi) +"\t"+ str(omega1) +"\t"+ str(omega2) +"\t"+ str(d_list[i]) +"\t"+ str(bond_length[i]) +"\t"+ str(N_CA_length[i]) +"\t"+ str(CA_C_length[i]) +"\t"+str(C_O_length[i])
                         info=R_length[i]+R_angle[i]+X_angle[i]
                         if(am=='A'):
