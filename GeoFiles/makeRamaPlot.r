@@ -1,6 +1,6 @@
 
 setwd("~/GitHub/RSA-normalization-values/GeoFiles/")
-code<-"Ala"
+code<-"Asp"
 fileOver<-paste(code, "_SA_Over",sep='')
 fileUnder<-paste(code, "_SA_Under",sep='')
 
@@ -23,7 +23,7 @@ points(Over$Phi*180/pi, Over$Psi*180/pi, pch=21, col=rcol2, bg="black", cex=1.5)
 mtext(expression(psi), side=2, line=4.5, outer= FALSE, las=1, cex=2.75)
 mtext(expression(phi), side=1, line=4.5, outer=FALSE, cex=2.75)
 
-legend("topright", c("RSA < 1", "RSA > 1"), bg=rgb(1,1,1), cex=2.75, col=c(rcol,black), pch=c(16,16))
+legend("topright", c("RSA < 1", "RSA > 1"), bg=rgb(1,1,1), cex=2.75, col=c(rcol,black), pch=c(16,16), box.lwd = 1)
 #box.lty=1,box.col="white", bg="white"
 dev.off()
 
