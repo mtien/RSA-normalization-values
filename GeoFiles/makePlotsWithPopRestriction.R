@@ -42,7 +42,7 @@ fA<- paste(code, "_Rama_HSV.svg", sep='')
 ##rspec<-c(rspec, rgb(r/mnum,0, (mnum-r)/mnum))
 ##}
 
-rspec<-c(rgb(1,1,1), hsv(seq(.9, 1.0, length=59),1,1), hsv(seq(0, .15, length=40),1,1) )
+rspec<-c(rgb(1,1,1), hsv(seq(.9, 1.0, length=56),1,1), hsv(seq(0, .15, length=40),1,1) )
 
 ##png(fA, width=1600, height=600, units="px")
 svg(fA, width=16, height=6)
@@ -80,11 +80,17 @@ mtext("B", side=3, line=2, outer= FALSE, adj=0, cex=1.5, font=2)
 ##colorlegend(posx=c(.91, .96), col=rev, zlim=c(0,mnum), zval=c(0, mnum))
 
 #345
-legend(145,
+rspec2<-c()
+for(r in 0:8)
+  {
+  rspec2<-c(rspec2, rspec[(12*r) +1])
+  }
+
+legend(345,
        200, 
        y.intersp=.5,
        legend=c("", "", "", "", "", "", "", "", ""), 
-       fill=rev(rspec), 
+       fill=rev(rspec2), 
        border="black",
        cex=3,
        bty="n")
@@ -92,9 +98,9 @@ legend(145,
 text(378,-172,"0", cex=1.5, xpd = TRUE)
 ##text(260,0,"30", cex=1.5, xpd = TRUE)
 ##text(260,20,"30", cex=1.5, xpd = TRUE)
-text(370,-15,"64", cex=1.5, xpd = TRUE)
+text(370,-15,as.character(mnum/2), cex=1.5, xpd = TRUE)
 ##text(260,50,"90", cex=1.5, xpd = TRUE)
-text(360,136,"128", cex=1.5, xpd = TRUE)
+text(360,136,as.character(mnum), cex=1.5, xpd = TRUE)
 text(398,185,"SA Scale", cex=1.5, xpd = TRUE)
 
 
