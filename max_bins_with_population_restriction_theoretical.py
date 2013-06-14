@@ -8,8 +8,9 @@ directory_theo="/Users/Matthew/Documents/GitHub/RSA-normalization-values/AnglesI
 directory_bin_theo="/Users/Matthew/Documents/GitHub/RSA-normalization-values/TheoreticalBins/pop_restriction"
 directory_bin_emp="/Users/Matthew/Documents/GitHub/RSA-normalization-values/EmpiricalBins/pop_restriction"
 inp=sys.argv[1]
-
+cap= inp.upper()
 fname= os.path.join(directory_bin_emp , inp + "_max_emperical_bins_pop_restriction")
+##fname= os.path.join(directory_bin_emp , inp + "_max_emperical_bins")
 filein= open(fname)
 filein.readline()
 key=[]
@@ -25,7 +26,7 @@ for line in filein:
 
 filein.close()
 
-fname=os.path.join(directory_theo ,"AnglesIteratedThroughAgain" + inp)
+fname=os.path.join(directory_theo ,"AnglesIteratedThroughAgain" + cap)
 filein= open(fname)
 filein.readline()
 flag=0
@@ -48,11 +49,13 @@ for line in filein:
 filein.close()
 
 fout=os.path.join(directory_bin_theo , inp+"_max_theoretical_bins_Again_pop_restriction")
+##fout=os.path.join(directory_bin_theo , inp+"_max_theoretical_bins_Again")
 fileout=open(fout, 'w')
 fileout.write("Phi\tPsi\tmaxSA\n")
 
 for k in key:
-    if( bins[k][0]==0 or bins[k][0]<5):
+    if( bins[k][0]<5):
+        ##if( bins[k][0]==0):
 	fileout.write(str(k[0])+"\t"+str(k[1])+"\t"+ str(0)+"\n")
     else:
 	fileout.write(str(k[0])+"\t"+str(k[1])+"\t"+ str(bins[k][2])+"\n")

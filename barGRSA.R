@@ -51,7 +51,8 @@ maxRSA<-c(maxRSA1, maxRSA2)*100
 RSAmat<- matrix(maxRSA, ncol=20, byrow=FALSE)
 num<-2.75
 
-pdf("~/GitHub/RSA-normalization-values/Figures/BarGraphRSA.pdf", width=12, height=8)
+setwd("~/GitHub/RSA-normalization-values/Figures/")
+pdf("BarGraphRSA.pdf", width=12, height=8)
 par(mar=c(6,6,2,2))
 ##LABEL, AXIS, TICKSpar(mar=c(4,0,0,0))
 par(mgp=c(4,1,0))

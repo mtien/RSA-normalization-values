@@ -1,12 +1,11 @@
 setwd("~/GitHub/RSA-normalization-values/")
-code<-"Asp"
+code<-"Ala"
 fileOver<-paste(code, "_SA_Over",sep='')
-fileOver<-paste("~/GitHub/RSA-normalization-values/SA_Over_Under/Over/",fileOver,sep='')
 fileUnder<-paste(code, "_SA_Under",sep='')
-fileOver<-paste("~/GitHub/RSA-normalization-values/SA_Over_Under/Under/",fileUnder,sep='')
 
-
+setwd("~/GitHub/RSA-normalization-values/SA_Over_Under/Over/")
 Over<-read.delim(fileOver)
+setwd("~/GitHub/RSA-normalization-values/SA_Over_Under/Under/")
 Under<-read.delim(fileUnder)
 
 setwd("~/GitHub/RSA-normalization-values/Figures/")

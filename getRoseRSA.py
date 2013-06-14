@@ -18,7 +18,7 @@ for aa in AA:
     f=open(os.path.join(directory_geo, aa+"_geo"))
     first= f.readline()
     lab="AA\tRSA\n"
-    fout=open(os.path.join(directory_geo, aa+"_Rose_RSA"), "w")
+    fout=open(os.path.join(directory_rose_RSA, aa+"_Rose_RSA"), "w")
     fout.write(lab)
     for line in f:
         stuff=line.split()

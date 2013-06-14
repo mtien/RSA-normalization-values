@@ -212,7 +212,6 @@ for line in fileP:
                     
     except:
         fileError.write("Error in: " + IDChain +"\n")
-        fileError.write(sys.exc_info()[0])
     
 fileError.close()
 print str(count)

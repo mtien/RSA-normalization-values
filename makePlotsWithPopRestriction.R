@@ -1,15 +1,15 @@
-code<- "Asp"
+code<- "Ala"
 fileC<-paste(code, "_max_theoretical_bins_Again",sep='')
-fileE<-paste(code, "_max_emperical_bins_pop_restriction",sep='')
+fileE<-paste(code, "_max_emperical_bins",sep='')
 
-setwd("~/GitHub/RSA-normalization-values/TheoreticalBins/pop_restriction/")
-##setwd("~/GitHub/RSA-normalization-values/TheoreticalBins/no_pop_restriction/")
+##setwd("~/GitHub/RSA-normalization-values/TheoreticalBins/pop_restriction/")
+setwd("~/GitHub/RSA-normalization-values/TheoreticalBins/no_pop_restriction/")
 dataC<-read.delim(fileC)
 mnum<-max(dataC$maxSA)
 zC<-matrix(dataC$maxSA, 72, byrow=T)
 
-setwd("~/GitHub/RSA-normalization-values/EmpiricalBins/pop_restriction/")
-##setwd("~/GitHub/RSA-normalization-values/EmpiricalBins/no_pop_restriction/")
+##setwd("~/GitHub/RSA-normalization-values/EmpiricalBins/pop_restriction/")
+setwd("~/GitHub/RSA-normalization-values/EmpiricalBins/no_pop_restriction/")
 dataE<-read.delim(fileE)
 zE<-matrix(dataE$maxSA, 72, byrow=T)
 

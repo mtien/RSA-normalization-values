@@ -43,6 +43,7 @@ fileout.write("Phi\tPsi\tmaxSA\tpopulation\n")
 
 for k in key:
     if( bins[k][1] >= 5):
+        ##if( bins[k][1] >= 1):
         fileout.write(str(k[0])+"\t"+str(k[1])+"\t"+ str(bins[k][0]) +"\t" + str(bins[k][1])+ "\n")
     else:
         fileout.write(str(k[0])+"\t"+str(k[1])+"\t"+ str(0) +"\t" + str(bins[k][1])+ "\n")

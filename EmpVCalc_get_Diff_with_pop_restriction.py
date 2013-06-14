@@ -6,6 +6,7 @@ directory_geo="/Users/Matthew/Documents/GitHub/RSA-normalization-values/GeoFiles
 inp=sys.argv[1]
 tempNom= inp[:3]
 nom=tempNom.capitalize()
+cap= inp.upper()
 
 fin=os.path.join(directory_geo,nom+ "_geo")
 filein= open(fin)
@@ -20,8 +21,8 @@ for i in range(-36,36):
 
 for line in filein:
     info=line.split()
-    psi= (float(info[5])*180.0)/math.pi
-    phi= (float(info[6])*180.0)/math.pi
+    psi= (float(info[6])*180.0)/math.pi
+    phi= (float(info[7])*180.0)/math.pi
     sa= float(info[1])
     b=((int(phi)/5)*5, (int(psi)/5)*5)
     bins[b][1]+=1
@@ -31,7 +32,7 @@ for line in filein:
 filein.close()
 
 directory_theo="/Users/Matthew/Documents/GitHub/RSA-normalization-values/AnglesIteratedThroughAgain"
-fname=os.path.join(directory_theo ,"AnglesIteratedThroughAgain" + inp)
+fname=os.path.join(directory_theo ,"AnglesIteratedThroughAgain" + cap)
 filein= open(fname)
 filein.readline()
 flag=0
@@ -48,7 +49,7 @@ for line in filein:
 filein.close()
 
 directory_evt="/Users/Matthew/Documents/GitHub/RSA-normalization-values/EmpiricalVTheoretical"
-fout=os.path.join(directory_evt ,"EmpericalVCalculated_diff_pop_nonZeroed_"+ inp)
+fout=os.path.join(directory_evt ,"EmpericalVCalculated_diff_pop_nonZeroed_"+ nom)
 
 
 fileout=open(fout, 'w')
