@@ -1,3 +1,4 @@
+setwd("~/GitHub/RSA-normalization-values/")
 wolfenden<- read.delim("Wolfden.txt")
 wolf<- wolfenden$Hydro
 
