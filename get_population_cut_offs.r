@@ -12,6 +12,9 @@ max_emp_97<-c()
 max_theo_100<-c()
 max_emp_100<-c()
 
+max_theo_gen<-c()
+max_emp_gen<-c()
+
 for(a in 1:length(Aa))
 {
   setwd("~/GitHub/RSA-normalization-values/AllBins")
@@ -45,6 +48,12 @@ for(a in 1:length(Aa))
   dtemp<- d[unlist(d$obs_bin_pop> counter),]
   max_theo_80<-c(max_theo_80, max(dtemp$max_theo_SA))
   max_emp_80<-c(max_emp_80, max(dtemp$max_obs_SA))
+  
+  setwd("~/GitHub/RSA-normalization-values/GenerousBins")
+  f_all<-paste(Aa[a], "_max_bins_GENEROUS", sep='')
+  d<-read.delim(f_all)
+  max_theo_gen<-c(max_theo_gen, max(d$max_theo_SA))
+  max_emp_gen<-c(max_emp_gen, max(d$max_obs_SA))
 }
 
 data<-data.frame(AminoAcid=Aa, 
@@ -55,6 +64,11 @@ data<-data.frame(AminoAcid=Aa,
                    max_emp_97=max_emp_97,
                    pop_80=pop_80,
                    max_theo_80=max_theo_80,
-                   max_emp_80=max_emp_80)
+                   max_emp_80=max_emp_80,
+                 max_theo_gen=max_theo_gen,
+                 max_emp_gen=max_emp_gen)
+
+
 setwd("~/GitHub/RSA-normalization-values/")
-write.table(data, file="NormalizationValuesByPercentDataCoverage.txt", quote=FALSE, row.names=FALSE, sep='\t')
+##write.table(data, file="NormalizationValuesByPercentDataCoverage.txt", quote=FALSE, row.names=FALSE, sep='\t')
+write.table(data, file="NormalizationValuesByPercentDataCoverageAndGenerous.txt", quote=FALSE, row.names=FALSE, sep='\t')
