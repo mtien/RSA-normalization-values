@@ -1,0 +1,1 @@
+Radzicka experimentally examined the free energy of transfer of side chain analogues of amino acids (AA). McCallum used these side chain analgous in MD simulations to see how the AA analgous distributed themselves within the bilayer (ie more hydrophobic regions or hydrophillic regions).
