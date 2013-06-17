@@ -181,7 +181,7 @@ p.Wolf.Fraction<-plotter(Wolf.Fraction,
 ##
 ##
 p.Kyte.TheoMean<-plotter(Kyte.TheoMean, 
-					y.label='Kyte-Doolittle H-scale', 
+					y.label='Kyte--Doolittle H-scale', 
 					x.label='Mean RSA', 
 					cor= cor.kyte.theoMean$estimate,
 					pval= cor.kyte.theoMean$p.value)
@@ -196,12 +196,12 @@ p.Kyte.TheoMean<-plotter(Kyte.TheoMean,
 ##					cor= cor.kyte.theoSqrt$estimate,
 ##					pval= cor.kyte.theoSqrt$p.value)
 p.Kyte.Rose<-plotter(Kyte.Rose, 
-					y.label='Kyte-Doolittle H-scale', 
+					y.label='Kyte--Doolittle H-scale', 
 					x.label='Rose H-scale', 
 					cor= cor.kyte.rose$estimate,
 					pval= cor.kyte.rose$p.value)
 p.Kyte.Fraction<-plotter(Kyte.Fraction, 
-					y.label='Kyte-Doolittle H-scale', 
+					y.label='Kyte--Doolittle H-scale', 
 					x.label='Fraction of 100% Buried Residues', 
 					cor= cor.kyte.fraction$estimate,
 					pval= cor.kyte.fraction$p.value)
