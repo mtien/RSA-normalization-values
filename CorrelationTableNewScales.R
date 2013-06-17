@@ -285,4 +285,5 @@ labels<-c("Rose", "Empirical Mean", "Theoretical Mean", "Empirical Median", "The
 
 Correlations<- data.frame(labels=labels, wolfCorr= wolfCorr, wolfPval=wolfPval, kyteCorr=kyteCorr, kytePval=kytePval, radzCorr= radzCorr, radzPval=radzPval, moonCorr= moonCorr, moonPval=radzPval, macCorr= radzCorr, macPval=radzPval, wimCorr=wimCorr, wimPval=wimPval, fauCorr=fauCorr, fauPval=fauPval)
 
-
+C_labels<-c("Rose", "Theoretical Mean","Empirical Mean","100% Buried", "95% Buried")
+C_for_paper<-

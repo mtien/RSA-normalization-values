@@ -1,4 +1,3 @@
-setwd(".")
 
 rm(list = ls())
 graphics.off()
@@ -78,17 +77,17 @@ plotter <- function(dat, y.label = 'H-Scale', x.label = 'Average RSA',
   return(g)
 }
 
-
+setwd("~/GitHub/RSA-normalization-values/Correlation/")
 wolfenden<- read.delim("Wolfden.txt")
 wolf<- normalize(wolfenden$Hydro)
 
 Rose<-read.delim("rose.txt")
 rose<- normalize(Rose$Hydro)
 
-Kyte<-read.delim("Kyte_Doolittle.txt")
+Kyte<-read.delim("Kite_Doolittle.txt")
 kyte<- normalize(Kyte$Hydro)
 
-Scales<- read.csv("Hydrophobicity_Scales_updated.txt", row.names=1)
+Scales<- read.table("Hydrophobicity_Scales_updated.txt", row.names=1, header=TRUE)
 meanTheo<-normalize(Scales$meanTheo)
 medianTheo<-normalize(Scales$medianTheo)
 SqrtMeanTheo<-normalize(Scales$meanTheoSqrt)
@@ -221,6 +220,7 @@ p.Kyte.Fraction<-plotter(Kyte.Fraction,
 ##					cor= cor.kyte.theoSqrt$estimate,
 ##					pval= cor.kyte.theoSqrt$p.value)
 
+setwd("~/GitHub/RSA-normalization-values/Figures/")
 pdf('NormalizedCorrelations.pdf', width=15, height=8 ,useDingbats=F)
 
 multiplot(p.Wolf.Rose, p.Wolf.TheoMean,  p.Wolf.Fraction,
