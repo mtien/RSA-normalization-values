@@ -1,4 +1,4 @@
-setwd("~/GitHub/RSA-normalization-values/Correlation/ExtraHydroScalesWork")
+setwd("~/GitHub/RSA-normalization-values/Correlation/")
 wolfenden<- read.delim("Wolfden.txt")
 wolf<- wolfenden$Hydro
 
@@ -24,10 +24,9 @@ Rose<-read.delim("rose.txt")
 rose<-Rose$Hydro
 rose19<-c(rose[1:14], rose[16:20])
 rose17<-c(rose[1:7], rose[10:14], rose[16:20])
-
-Scales<- read.csv("Hydrophobicity_Scales_Updated.txt", row.names=1)
-Scales19<- read.csv("Hydrophobicity_Scales_Updated19.txt", row.names=1)
-Scales17<- read.csv("Hydrophobicity_Scales_Updated17.txt", row.names=1)
+Scales<- read.table("Hydrophobicity_Scales_Updated.txt", row.names=1, header=TRUE)
+Scales19<- read.table("Hydrophobicity_Scales_Updated19.txt", row.names=1, header=TRUE)
+Scales17<- read.table("Hydrophobicity_Scales_Updated17.txt", row.names=1, header=TRUE)
 
 cor.wolf.rose<-cor.test(wolf, rose)
 cor.wolf.empMean<-cor.test(wolf, Scales$meanEmp)

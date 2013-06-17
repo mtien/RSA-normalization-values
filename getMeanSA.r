@@ -1,11 +1,23 @@
+get19<-function(tempARR){
+  temp<-c(tempARR[1:14], tempARR[16:20])
+  return(temp)
+}
+
+get17<-function(tempARR){
+  temp<-c(tempARR[1:7], tempARR[10:14], tempARR[16:20])
+  return(temp)
+}
+
 library("TeachingDemos")
 library("MASS")
-setwd("~/GitHub/RSA-normalization-values/")
 
 AA<-c("ALA", "ARG", "ASN", "ASP", "CYS", "GLN", "GLU", "GLY", "HIS", "ILE", "LEU", "LYS", "MET", "PHE", "PRO", "SER", "THR", "TRP", "TYR", "VAL")
 aa<-c("Ala", "Arg", "Asn", "Asp", "Cys", "Gln", "Glu", "Gly", "His", "Ile", "Leu", "Lys", "Met", "Phe", "Pro", "Ser", "Thr", "Trp", "Tyr", "Val")
+setwd("~/GitHub/RSA-normalization-values/Correlation/")
+NormValues<- read.table("NormalizationValuesByPercentDataCoverageAndGenerous.txt", row.names=1, header=TRUE)
 
-NormValues<- read.csv("NormalizationValues.txt", row.names=1)
+Theoretical<-NormValues$max_theo_97
+Empirical<-NormValues$max_emp_97
 
 meanTheo<-c()
 ##SDTheo<-c()
@@ -30,9 +42,9 @@ setwd("~/GitHub/RSA-normalization-values/GeoFiles/")
 SA_AA<- paste(aa[a], "_geo", sep='')
 f<- read.delim(SA_AA)
 
-TheoRSA<-c(TheoRSA, (f$SA+1)/(NormValues$Theoretical[a]+1))
+TheoRSA<-c(TheoRSA, (f$SA+1)/(Theoretical[a]+1))
 
-EmpRSA<-c(EmpRSA, (f$SA+1)/(NormValues$Empirical[a]+1))
+EmpRSA<-c(EmpRSA, (f$SA+1)/(Empirical[a]+1))
 }
 
 ######################################################################
@@ -74,29 +86,29 @@ variableTemp<-f$SA
 number<- length(variableTemp[variableTemp<1])
 ScaleFrac<- append( ScaleFrac, number/denom)
 
-TRSA<-(f$SA)/NormValues$Theoretical[a]
+TRSA<-(f$SA)/Theoretical[a]
 number<- length(TRSA[TRSA<.05])
 ScaleFrac95<- c(ScaleFrac95, number/denom)
 
 
-TRSA<-(f$SA)/NormValues$Theoretical[a]
+TRSA<-(f$SA)/Theoretical[a]
 
 meanTheo<-append(meanTheo, mean(1-TRSA) )
 ##SDTheo<-c(SDTheo, sd(TheoRSA))
 meanTheoSqrt<-append(meanTheoSqrt, mean(1-sqrt(TRSA)))
 medianTheo<- append(medianTheo, median(1-TRSA))
 
-TRSA_transformed<-(f$SA+1)/(NormValues$Theoretical[a]+1)
+TRSA_transformed<-(f$SA+1)/(Theoretical[a]+1)
 meanTheoBC<-c(meanTheoBC, mean( bct(TRSA_transformed, lambdaT) ) )
 
-ERSA<-(f$SA)/NormValues$Empirical[a]
+ERSA<-(f$SA)/Empirical[a]
 
 meanEmp<- append(meanEmp, mean(1-ERSA) )
 ##SDEmp<- c(SDEmp, sd(EmpRSA))
 meanEmpSqrt<-append(meanEmpSqrt, mean(1-sqrt(ERSA)))
 medianEmp<-append(medianEmp, median(1-ERSA))
 
-ERSA_transformed<-(f$SA+1)/(NormValues$Empirical[a]+1)
+ERSA_transformed<-(f$SA+1)/(Empirical[a]+1)
 meanEmpBC<-c(meanEmpBC, mean( bct(ERSA_transformed, lambdaE) ))
 }
 
@@ -116,7 +128,24 @@ medianTheo=medianTheo, meanTheoSqrt=meanTheoSqrt, meanTheoBC= meanTheoBC)
 BuriedScales<-data.frame(AminoAcid=AA,
 ScaleFrac=ScaleFrac, ScaleFrac95= ScaleFrac95)
 
-setwd("~/GitHub/RSA-normalization-values/")
+setwd("~/GitHub/RSA-normalization-values/Correlation/")
 ##write.table(MeanScales, file="MeanHydrophobicityScales.txt", quote=FALSE, row.names=FALSE, sep='\t')
 ##write.table(BuriedScales, file="BuriedHydrophobicityScales.txt", quote=FALSE, row.names=FALSE, sep='\t')
-write.csv(Scales, file="Hydrophobicity_Scales_updated.txt")
+
+write.table(Scales, file="Hydrophobicity_Scales_updated.txt",quote=FALSE, row.names=FALSE, sep='\t')
+
+Scales19<-data.frame(AminoAcid=get19(AA), meanEmp=get19(meanEmp), 
+                     medianEmp=get19(medianEmp),meanEmpSqrt=get19(meanEmpSqrt), 
+                     meanEmpBC=get19(meanEmpBC), meanTheo=get19(meanTheo),
+                     medianTheo=get19(medianTheo), meanTheoSqrt=get19(meanTheoSqrt), 
+                     meanTheoBC= get19(meanTheoBC),
+                   ScaleFrac=get19(ScaleFrac), ScaleFrac95= get19(ScaleFrac95))
+
+Scales17<-data.frame(AminoAcid=get17(AA), meanEmp=get17(meanEmp), 
+                     medianEmp=get17(medianEmp),meanEmpSqrt=get17(meanEmpSqrt), 
+                     meanEmpBC=get17(meanEmpBC), meanTheo=get17(meanTheo),
+                     medianTheo=get17(medianTheo), meanTheoSqrt=get17(meanTheoSqrt), 
+                     meanTheoBC= get17(meanTheoBC),
+                     ScaleFrac=get17(ScaleFrac), ScaleFrac95= get17(ScaleFrac95))
+write.table(Scales19, file="Hydrophobicity_Scales_updated19.txt",quote=FALSE, row.names=FALSE, sep='\t')
+write.table(Scales17, file="Hydrophobicity_Scales_updated17.txt",quote=FALSE, row.names=FALSE, sep='\t')
