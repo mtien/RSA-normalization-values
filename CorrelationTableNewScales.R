@@ -281,9 +281,17 @@ cor.wim.theoBC$p.value,
 cor.wim.fraction100$p.value,
 cor.wim.fraction95$p.value)
 
-labels<-c("Rose", "Empirical Mean", "Theoretical Mean", "Empirical Median", "Theoretical Median", "Empirical Sqrt Mean", "Theoretical Sqrt Mean", "Empirical Box-Cox Mean", "Theoretical Box-Cox Mean", "100% Buried", "95% Buried")
+labels<-c("Rose", "Empirical Mean", "Theoretical Mean", "Empirical Median", "Theoretical Median", "Empirical Sqrt Mean", "Theoretical Sqrt Mean", "Empirical Box-Cox Mean", "Theoretical Box-Cox Mean", "100_Buried", "95_Buried")
 
 Correlations<- data.frame(labels=labels, wolfCorr= wolfCorr, wolfPval=wolfPval, kyteCorr=kyteCorr, kytePval=kytePval, radzCorr= radzCorr, radzPval=radzPval, moonCorr= moonCorr, moonPval=radzPval, macCorr= radzCorr, macPval=radzPval, wimCorr=wimCorr, wimPval=wimPval, fauCorr=fauCorr, fauPval=fauPval)
+write.table(Correlations, "Hydrophobicity_Correlations.txt",quote=FALSE, row.names=FALSE, sep='\t')
+
+
+Corr_trans<-data.frame(rbind(wolfCorr= wolfCorr, wolfPval=wolfPval, kyteCorr=kyteCorr, kytePval=kytePval, radzCorr= radzCorr, radzPval=radzPval, moonCorr= moonCorr, moonPval=radzPval, macCorr= radzCorr, macPval=radzPval, wimCorr=wimCorr, wimPval=wimPval, fauCorr=fauCorr, fauPval=fauPval))
+colnames(Corr_trans)<-labels
+write.table(Corr_trans, "Hydrophobicity_Correlations_Transposed.txt",quote=FALSE, row.names=FALSE, sep='\t')
 
 C_labels<-c("Rose", "Theoretical Mean","Empirical Mean","100% Buried", "95% Buried")
-C_for_paper<-
+C_table<- data.frame( Rose=Corr_trans$"Rose", Theoretical_Mean= Corr_trans$"Theoretical Mean", Empirical_Mean=Corr_trans$"Empirical Mean", buried_100= Corr_trans$"100_Buried",  buried_95=Corr_trans$"95_Buried")
+row.names(C_table)<-names(Correlations)[2:length(names(Correlations))]
+write.table(C_table, "Hydrophobicity_Correlations_Figure.txt",quote=FALSE, row.names=FALSE, sep='\t')
