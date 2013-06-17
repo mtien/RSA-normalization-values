@@ -1,0 +1,256 @@
+\documentclass[11pt]{article}
+
+\usepackage{mathptmx} 
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{cite}
+\usepackage{float}
+\renewcommand{\bottomfraction}{1.}
+\renewcommand{\topfraction}{1.}
+\renewcommand{\textfraction}{0.}
+\renewcommand{\floatpagefraction}{1.}
+
+
+%% PLOS styling
+% Text layout
+\topmargin 0.0cm
+\oddsidemargin 0.5cm
+\evensidemargin 0.5cm
+\textwidth 16cm 
+\textheight 21cm
+
+% Bold the 'Figure #' in the caption and separate it with a period
+% Captions will be left justified
+\usepackage[labelfont=bf,labelsep=period,justification=raggedright]{caption}
+
+% Use the PLoS provided bibtex style
+\bibliographystyle{plos2009}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+% Leave date blank
+\date{}
+
+\pagestyle{myheadings}
+%% ** EDIT HERE **
+
+
+\begin{document}
+
+\begin{flushleft}
+{\Large\textbf{Maximum allowed solvent accessibilites of residues in proteins}}
+\\
+\mbox{}\\
+Matthew A. Tien$^1$,
+Austin G. Meyer$^{2,3}$,
+Stephanie J. Spielman$^{2}$,
+Claus O. Wilke$^{2,\ast}$
+\\
+\mbox{}\\
+\textbf{1} Dept.\ of Biochemistry \& Molecular Biology, The University of Chicago, Chicago, IL 60637, USA
+\\
+\textbf{2} Section of Integrative Biology, Institute for Cellular and Molecular Biology, and Center for Computational Biology and Bioinformatics, The University of Texas at Austin, Austin, TX 78731, USA
+\\
+\textbf{3} School of Medicine, Texas Tech University Health Sciences Center, Lubbock, TX, 79430, USA
+\\
+$\ast$ Email: wilke@austin.utexas.edu
+\end{flushleft}
+
+
+
+%\maketitle
+%\keywords{ solvent accessibility | relative solvent accessibility | tripeptide | hydrophbicity scale }
+
+
+\section*{Abstract}
+The relative solvent accessibility (RSA) of a residue in a protein measures the extent of burial or exposure of that residue in the 3D structure. RSA is frequently used to describe a protein's biophysical or evolutionary properties. To calculate RSA, a residue's solvent accessibility (SA) needs to be normalized by a suitable reference value for the given amino acid; several normalization scales have previously been proposed. However, these scales do not provide tight upper bounds on SA values frequently observed in empirical crystal structures. Instead, they underestimate the largest allowed SA values, by up to 20\%. As a result, many empirical crystal structures contain residues that seem to have RSA values in excess of one. Here, we derive a new normalization scale that does provide a tight upper bound on observed SA values. We pursue two complementary strategies, one based on extensive analysis of empirical structures and one based on systematic enumeration of biophysically allowed tripeptides. Both approaches yield highly congruent results that consistently exceed published values. We conclude that previously published SA normalization values were too small primarily because the conformations that maximize SA had not been correctly identified. As an application of our results, we show that empirically derived hydrophobicity scales are sensitive to accurate RSA calculation, and we derive new hydrophobicity scales that correlate well with experimentally measured scales.
+
+% \section*{Author Summary}
+% Many applications in biology and biochemistry require an estimate of the extent to which amino acids are buried within a protein structure or exposed to solvent. A commonly used measure for this purpose, relative solvent accessibility (RSA), relies on 30-year-old, widely-used normalization constants. We demonstrate here that these constants are too small, for some amino aicds by up to 20\%. All published results using RSA are therefore potentially inaccurate. We calculate a new set of normalization constants that alleviates this flaw. To demonstrate an application, we derive improved amino-acid hydrophobicity scales from the solvent accessibility of amino acids in protein structures.
+
+\section*{Introduction}
+
+Relative solvent accessibility (RSA) has emerged as a commonly used metric describing protein structure in computational molecular biology, with the particular application of identifying buried or exposed residues. It is defined as a residue's solvent accessibility (SA) normalized by a suitable maximum value for that residue.  RSA was first introduced in the context of hydrophobicity scales derived by computational means from protein crystal structures \cite{Chothia1976,Rose1985,Miller1987,Moelbert2004,Shaytan2009}. More recently, RSA has been shown to correlate with protein evolutionary rates and has been incorporated as a parameter into models which determine these rates \cite{Goldmanetal1998,Bloometal2006,FranzosaXia2009,Zhouetal2009,FranzosaXia2012,Scherrer2012,MeyerWilke2012,ConantStadler2009}. As RSA straightforwardly characterizes the local environment of residues in protein structures, many studies have developed computational methods to predict RSA from protein primary and/or secondary structure \cite{RostSander1994,Pollastrietal2002,KimPark2004,NguyenRajapakse2005}. Further applications of RSA include identification of surface, interior, and interface regions in proteins \cite{Levy2010}, protein-domain prediction \cite{Chengetal2006}, and prediction of deleterious mutations \cite{ChenZhou2005}.
+ 
+To derive a residue's RSA from its surface area, an SA normalization factor is needed for each amino acid. By convention, these normalization values have been derived by evaluating the surface area around a residue of interest X when placed between two glycines, to form a Gly-X-Gly tripeptide. Most commonly, the normalization values utilized are those previously calculated by either Rose \emph{et al.}~\cite{Rose1985} or Miller \emph{et al.}~\cite{Miller1987}. The primary distinction between these two sets of normalization values lies in the different $\phi$ and $\psi$ dihedral backbone angles chosen when evaluating Gly-X-Gly tripeptide conformations. Rose \emph{et al.}~\cite{Rose1985} considered tripeptides with backbone angles representing an average of observed $\phi$ and $\psi$ angles, whereas Miller \emph{et al.}~\cite{Miller1987} considered tripeptides in the extended conformation ($\phi= -120^\circ$, $\psi=140^\circ$).
+
+As the number of empirically determined 3D protein crystal structures has grown over the years, it has become apparent that neither the Rose ~\cite{Rose1985} nor the Miller ~\cite{Miller1987} scale accurately identifies the true upper bound for a residue's SA. In fact, virtually all amino acids display, on occasion, SA values in excess of the normalization SA values provided by either scale. Some do so quite frequently (e.g.\ R, D, G, K, P), reaching RSA values of up to 1.2. This discrepancy, which leads to RSA values $>1$, is generally known in the field though rarely acknowledged in print.
+
+Here, we derive a new set of SA normalization values that provide a tight upper bound on SA values observed in biophysically realistic tripeptide conformations. To calculate these normalization values, we pursue two complementary strategies---one empirical and one theoretical. For the empirical approach, we mined thousands of 3D crystal structures and recorded the maximum SA values we found for each amino acid across all structures. For the theoretical approach, we computationally built Gly-X-Gly tripeptides and systematically evaluated all biophysically allowed conformations to determine a maximum theoretical SA value. These two strategies yield highly congruent results and ultimately produce comparable normalization scales that tightly bound SA for all 20 amino acids. We then return to the historic motivation for RSA and investigate the implications of our results for hydrophobicity scales. We find that SA normalization affects the performance of empirically derived hydrophobicity scales, and we propose new scales that show improved correlation with experimentally measured scales.
+
+
+\section*{Results}
+
+\subsection*{Published SA normalization values are too small}
+We initially assessed the accuracy of Rose's~\cite{Rose1985} and Miller's~\cite{Miller1987} SA normalization scales through an exhaustive survey of the SA values found in experimentally determined protein structures. We obtained a list of 2908 high-quality PDB structures from the PISCES server \cite{WangDunbrack2003}. We then calculated SA for each residue in all 2908 structures, excluding any chain-terminating residues. SA values were subsequently normalized using the scales of either Rose \emph{et al.}~\cite{Rose1985} or Miller \emph{et al.}~\cite{Miller1987} to obtain RSA. For either scale and each amino acid, we found that residues with $\text{RSA}>1$ were not uncommon (Figure~\ref{fig:BarGraphRSA}); RSA values exceeded unity by up to 20\%. The amino acids that most commonly displayed $\text{RSA}>1$ were R, D, G, K, P. For those amino acids, RSA values $>$1 occurred at frequencies of 1\% to 3\% of all residues, depending on the normalization scale used (Figure~\ref{fig:BarGraphRSA}).
+
+To determine the underlying factors leading to $\text{RSA}>1$, we examined the association between RSA and the following factors: residue neighbors, secondary structure, bond lengths, bond angles, and dihedral angles. For most of these quantities, we found no strong association with RSA. We did, however, find a clear association with residues' $\phi$ and $\psi$ backbone angles. For example, consider the Ramachandran plot of alanine (Figure~\ref{fig:RamaAla}). A noticeable cluster of high-RSA residues falls into the $\alpha$-helix region of $\phi\approx-50$, $\psi\approx-45$. We found similar results for all other amino acids. Importantly, neither Rose nor Miller derived their normalization SA values in that region of backbone angles. Therefore, we concluded that previous SA normalization scales were obtained with poorly chosen $\phi$ and $\psi$ angles.
+
+\subsection*{Modeling Tripeptides Yields Significantly Higher Maximum SA Values}
+To derive maximum SA values for each amino acid X, we computationally constructed Gly-X-Gly tripeptides and systematically rotated them through all biophysically allowed  conformations (see Supporting Text for details.) When constructing the tripeptides, we set bond lengths and angles (excluding $\omega$, $\phi$, $\psi$, and $\chi$ angles) for each amino acid equal to the average values observed for that amino acid in our reference set of 2908 PDB structures. We set $\omega=180^\circ$. We then rotated the $\phi$ and $\psi$ around the X residue in  discrete 1$^\circ$ steps, exhaustively enumerating all conformations except those nonexistent or rare in actual crystal structures. Additionally, we iterated through all rotamer angles $\chi$ that were sterically possible with each $(\phi, \psi)$ combination. For those amino acids with more than 10 possible distinct rotamer conformations, as determined by the Dunbruck database \cite{WangDunbrack2003}, we evaluated ten randomly chosen rotamer conformations. We recorded the maximum SA observed for each $(\phi, \psi)$ backbone-angle combination.
+
+Next, we compared the resulting theoretical maximum SA values to the empirically observed maximum SA values. We binned both the theoretical and the empirical values into discrete $5^\circ\times5^\circ$ bins of $(\phi, \psi)$ and recorded the maximum SA in each bin. To eliminate nonexistent or rare conformations, we discarded for both data sets all bins that contained fewer than five observations in the empirical data set. We displayed the remaining data in side-by-side Ramachandran plots (Figure~\ref{fig:heatrama}) and generally found good congruence between the theoretical and the empirical values for all amino acids. Regions that had the highest maximum SA in the theoretical data set also had the highest maximum SA in the empirical data set. The highest SA values were generally observed in the $\alpha$-helix region of the Ramachandran plot (Figure~\ref{fig:heatrama}). Based on these results, we propose new maximally exposed geometries for each amino acid (Table S1).
+
+We further evaluated our model's performance by directly comparing theoretical and empirical maximum SA values in each $(\phi, \psi)$ bin. We calculated the difference between these two values for each $5^\circ\times5^\circ$ bin (now including all bins with at least one observation in the empirical data set). We then plotted this difference against the number of empirical observations obtained for each bin (Figure~\ref{fig:EvC}). We found that with increasing amounts of empirical data, this difference approached zero; the maximum SA values from both approaches converged as more data was available. Moreover, even for sparsely populated bins, at least some bins showed a difference near zero, regardless of the number of observations in each bin. Therefore, while our results did improve with increasing amounts of data, they were also largely robust to smaller data sets. The overall maximum SA values for each amino acid as derived from both approaches are summarized in Table~\ref{tab:results}. These maximum values were again derived excluding bins with fewer than five empirical observations.
+
+
+\subsection*{Relation to Empirically Derived Hydrophobicity Scales}
+
+The solvent exposure of an amino acid, averaged over many occurrences of that amino acid in many different protein structures, should reflect the amino acid's hydrophobicity. Therefore, solvent exposure has long been used as a means to empirically derive hydrophobicity scales from protein crystal structures \cite{Chothia1976,Rose1985}. In particular, Rose \emph{et al.}~\cite{Rose1985} derived a hydrophobicity scale by calculating the mean RSA for each amino acid across a set of reference crystal structures, using the SA normalization values derived in the same work~\cite{Rose1985}. Since those normalization values are inaccurate, as shown above, we assessed how using our normalization values would alter the Rose hydrophobicity scale.
+
+We first compared the Rose scale to a number of experimentally derived scales (Table~\ref{tab:Corr}, \cite{Wolfenden1981,Kyte1981,Fauchere1983,Radzicka1988,MacCallum2007,Moon2011,Wimley1996}). We included in the list of experimental scales the scale by Kyte \& Doolittle~\cite{Kyte1981}, which is a hybrid scale partially based on solvent-accessibility data from protein structures, and the scale by Mac Callum \emph{et al.}~\cite{MacCallum2007}, which is based on molecular-dynamics simulations. A brief description of each scale is given in the legend to Table~\ref{tab:Corr}. The Rose scale correlated reasonably well (50\%-70\% of variance explained) with most experimental scales. It correlated the highest with the scale of Fauchere \& Pliska~\cite{Fauchere1983} (82\% of variance explained) and it did not correlate significantly with the scale of Wimley \emph{et al.}~\cite{Wimley1996}.
+
+We next derived two scales based on mean RSA, calculated using either our theoretical or our empirical SA normalization values (Table S2). Both of our mean RSA scales correlated well with the Rose scale ($r=0.96$ and $r=0.97$, respectively, with $P<10^{-10}$ in both cases) but were not identical to it. The biggest difference arose for histidine, which is ranked as the 8th-most hydrophobic amino acid according to the Rose scale but as the 13th- or 12th-most hydrophobic amino acid, respectively, according to our scales. Our scales correlated more strongly than the Rose scale with all experimental scales considered (Table~\ref{tab:Corr}). For the majority of experimental scales, the percent variance explained increased by approximately 10 percentage points using our normalization over the Rose normalization. We can conclude from these results that mean RSA is a useful measure of amino acid hydrophobicity and that correct SA normalization is required to assign appropriate hydrophobicity scores to all amino acids.
+
+One concern with using mean RSA as a measure of hydrophobicity is that the RSA distribution of individual amino acids tends to be highly skewed (see Figure~S1 for an example). Hence, mean RSA may not accurately reflect the most common RSA values. It might be preferable to use instead the fraction of times an amino acid occurs in a buried conformation in empirical protein structures. This approach was originally suggested by Chothia \emph{et al.} in 1976 and executed with the limited data available at the time~\cite{Chothia1976}.
+
+We calculated two additional scales from our data set of 2908 protein structures: for each of the 20 amino acids, we calculated the fraction of completely buried residues (100\% buried, $\text{RSA}=0$) and the fraction of 95\% buried residues ($\text{RSA}<0.05$) among all occurrences of these amino acids in the protein structures. For most of the experimental scales, these two scales showed a stronger correlation than any of the scales based on mean RSA did (Table~\ref{tab:Corr}). The two main exceptions were the scale by Fauchere \& Pliska \cite{Fauchere1983}, which correlated better with mean RSA, and the scale by Wimley \emph{et al.} \cite{Wimley1996}, which correlated poorly with all empirical scales. Since the Kyte \& Doolittle scale \cite{Kyte1981} is partly based on the fraction of buried residues, its strong correlation with our scales is not surprising and does not represent a truly independent validation of these scales.
+
+
+
+\section*{Discussion}
+
+We have derived significantly improved SA normalization values. Our normalization values provide a tight upper bound to the largest observed SA values in empirical structures. By contrast, previously published SA normalization valules were too small, by up to 20\%, and frequently led to RSA values $>1$. We estimated the maximum allowed SA for each amino acid by computationally modeling Gly-X-Gly tripeptides, where X is the amino acid of interest, and exhaustively surveying SA over all biophysically feasible conformations. We found that maximally exposed conformations tend to fall into the $\alpha$-helix region of Ramachandran plots, and that extended conformations display some side-chain burial. The results of our modeling approach were consistent with maximum SA values found by surveying nearly 3000 empirical protein crystal structures. We also revisited the problem of deriving empirical hydrophobicity scales from protein structures. We found that improved SA normalization values lead to improved empirical hydrophobicity scales. Further, scales based on both mean RSA and on the fraction of buried residues correlated well with experimentally measured scales. Overall, the fraction of 95\% buried residues seems to be the best-performing empirical hydrophobicity scale, but mean RSA correlates well with an experimental scale based on side-chain transfer between octanol and water.
+
+Our method of obtaining SA normalization values was similar to the methods employed by Rose \emph{et al.}~\cite{Rose1985} and by Miller \emph{et al.}~\cite{Miller1987}. Rose \emph{et al.}~\cite{Rose1985} calculated their SA normalization values by computing the SA of residue X in Gly-X-Gly tripeptides whose conformations were chosen based on the average dihedral angles from available empirical data at the time. Miller \emph{et al.}~\cite{Miller1987}, on the other hand, calculated their SA normalization values by computing the SA of an extended trimer structure with $\phi = -120^\circ, \psi= 140^\circ$ and with side-chain conformations that were frequently observed in the empirical data. The key distinction between these previous approaches and ours lies in our exhaustive sampling of tripeptide conformations. By modeling all biophysically feasible discrete combinations of $\phi$ and $\psi$ angles and varying rotamers, we identified the ideal conformations which yield maximum allowed SA. To pursue our modeling strategy, we developed a program that allowed us to easily construct peptide chains from scratch in arbitrary conformations (see Supporting Text for details).
+
+Our theoretical modeling approach to exhaustively survey tripeptides has two potential shortcomings. First, for bond lengths and angles (except major dihedral angles), we used mean values observed in a large number of protein crystal structures. This approach neglects the variation around the mean, and there could be rare cases where unusually large bond lengths or unusual bond angles might cause SA to become larger than estimated here. Such scenarios would have to be exceedingly rare, however, since we did not find a single case in which the largest empirically derived maximum SA value exceeded the largest theoretically derived maximum SA value (Table~\ref{tab:results}). Second, for amino acids with more than 10 distinct rotamer conformations, we did not exhaustively enumerate all possible conformations but only sampled 10 conformations at random. Thus, in principle it is possible that we missed a particular rotamer conformation that would have corresponded to a larger SA value than the maximum we observed. Two arguments suggest that this issue is not likely a major source of error. First, again, we did not find a single case in which the empirical maximum SA was larger than the theoretical maximum SA. Second, maximum SA varied slowly with $\phi$ and $\psi$, and by exhaustively enumerating conformations in $1^\circ$ steps, in effect we sampled the most exposed conformations multiple times, thus reducing the chance of missing a rare, large-SA conformation.
+
+As RSA calculations are based on the Gly-X-Gly framework, we excluded all chain terminating residues from both the empirical and the theoretical analysis. Even with our improved SA normalization values, then, chain-terminating residues may still display $\text{RSA}>1$. We therefore recommend that future analyses making use of RSA similarly exclude any chain-terminating residues, as their RSA estimates will not be precise. Suitable normalization values for chain-terminating residues are not available at present. 
+
+The normalization values we have derived here are, strictly speaking, only valid for solvent-accessible surface areas calculated with the DSSP program \cite{Kabsch1983}. However, more generally, we expect them to be correct as long as solvent accessibility is calculated according to the definition of Lee and Richards \cite{LeeRichards1971}, which assumes that a sphere of radius 1.4\AA\ is rolled over the surface of the molecule. For cases in which solvent accessibility is calculated differently, our results suggest that one can follow an empirical approach to normalization. In other words, one need not exhaustively evaluate tripeptides, as we have done here. Instead, one can obtain a representative sample of structures from the protein data bank, exclude all terminal residues and residues in unusual conformations, and then find for each amino acid the maximum solvent accessibility within that data set, according to one's chosen definition of solvent accessibility. As Table~\ref{tab:results} shows, this empirical approach should generally yield results that are quite similar to the theoretical normalization values.
+
+The comparison between experimentally and empirically derived hydrophobicity scales has been a persistent topic in biochemistry. Resolving discrepancies between empirically-derived data and experimentally derived thermodynamics of hydrophobicity could provide crucial insight into algorithms of protein-structure prediction and de-novo protein folding. Wolfenden \emph{et al.}~\cite{Wolfenden1981} were the first to propose an approach for reconciling both approaches by correlating the distribution of amino acid exposure with their experimental behaviors in water/vapor solutions. More recently, Moelbert \emph{et al.}~\cite{Moelbert2004} attempted to reconcile these disparities by correlating hydrophobic states with surface-exposure patterns of protein structures. Additionally, Shaytan \emph{et al.}~\cite{Shaytan2009} assessed the distribution of amino acid exposure in proteins to discern apparent free energies of transfer between protein interior and surface states, and found that free energy is highly correlated with experimental hydrophobicity scales \cite{Shaytan2009}. Each of these approaches used the SA normalization values from either Rose \emph{et al.}~\cite{Rose1985} or Miller \emph{et al.}~\cite{Miller1987}. Since the normalization SA values developed here are more accurate, we believe that our findings are valuable for determining exposure states. Using the Rose hydrophobicity scale as an example, we have shown here that improved SA normalization values consistently yield improved correlations with experimental scales, irrespective of the exact type of experimental scale considered.  Of all empirical scales we analyzed, however, the fraction of 95\% buried residues was most consistently strongly correlated with different experimental scales and thus could be considered the overall best-performing empirical scale.
+
+Further, in agreement with Shaytan \emph{et al.}~\cite{Shaytan2009}, we found that different experimental scales corresponded to different empirical scales. For example, transfer energies from water to vapor correlated the strongest with the fraction of 100\% buried residues, while transfer energies from water to cyclohexane correlated the strongest with the fraction of 95\% buried residues, and transfer energies from water to octanol correlated the strongest with mean RSA. Since mean RSA puts more weight on exposed residues than does the fraction of either 100\% buried or 95\% buried residues, this finding agrees with the three distinct types of scales found by Shaytan \emph{et al.}~\cite{Shaytan2009}. The pentapetide scale by Wimley \emph{et al.}~\cite{Wimley1996}, however, did not correlate well with either of the empirical scales we considered. Wimley \emph{et al.} performed a partioning experiment between water and 1-octanol using pentapeptide species, Ace-WLXLL, with X being one of the naturally occuring 20 amino acids. Otherwise, their set up was simlar to the one of Fauchere \& Pliska~\cite{Fauchere1983}. By using pentapeptides rather than individual amino acids, the Wimley \emph{et al.} hydrophobicity scale does not seem to accurately reflect the hydrophobic character of individual amino acids but rather that of the pentapeptides.
+
+In summary, we have presented significantly improved SA normalization values. We recommend that our theoretical normalization values (column 1 of Table~\ref{tab:results}) be used to normalize SA. The optimal hydrophobicity scale will depend on the specific application, but the fraction of 95\% buried residues seems to be the best general-purpose empirical scale.
+
+
+\section*{Materials and Methods}
+
+We obtained a set of 2908 high-quality protein crystal structures using the PISCES server \cite{WangDunbrack2003}. We imposed the following requirements: resolution of 1.8 \AA\ or less, an $R$-free value $<0.25$, and a pairwise mutual sequence identity of at most 20\%. For each amino-acid reasidue in all 2908 structures, we retrieved bond lengths, bond angles, dihedral angles, peptide bond lengths, and nearest neighbors. Chain-terminating residues, defined as those residues whose peptide bond lengths with any neighboring residue was greater than six standard deviations from the protein's mean peptide bond length, were excluded from all subsequent analyses.
+
+We used the program DSSP (2011 version) \cite{Kabsch1983} to calculate solvent accessibility (SA) and to identify the secondary structure of each residue across all proteins. We calculated RSA as $\text{RSA}=\text{SA}/\text{Maximum SA}$, where ``Maximum SA'' corresponds to the maximum SA value, as determined by the normalization scale used, for the focal amino acid. 
+
+We developed a novel procedure to computationally build Gly-X-Gly tripeptide structures from scratch. This method is described in detail in Supporting Text. Briefly, we first constructed peptides in a defined conformation by placing each atom at the correct position in 3D space. We then adjusted $\phi$, $\psi$, and $\chi$ angles to obtain the desired conformation. 
+
+We calculated empirical hydrophobicity scales on the same set of 2908 crystal structures. Mean RSA of each amino acid was calculated as the RSA averaged over all occurrences of that amino acid in the data set. The corresponding hydrophbicity scale was defined as $1-(\text{mean RSA})$. Fraction 100\% buried was calculated for each amino acid as the percent of times the program DSSP reported $\text{SA}<1$\AA\ for each occurrence of that amino acid in the data set. Fraction 95\% buried was calculated for each amino acid as the percent of times that amino acid had an RSA value $<0.05$, where RSA was calculated using the theoretical normalization values of Table~\ref{tab:results}.
+
+\section*{Acknowledgments}
+%This work was supported by NIH grant R01 GM088344 to C.O.W.
+We thank Dariya Sydykova for help with the python code used to build model tripeptides.
+
+
+
+\bibliography{bibliography}
+
+
+\newpage
+
+\section*{Figure captions}
+
+\begin{figure}[H]
+%\includegraphics[width=4in]{figures/BarGraphRSA.png}
+\caption{\label{fig:BarGraphRSA}Frequency of residues with $\text{RSA}>1$ in empirical protein structures. Nearly all amino acids, and notably R, D, K, G, and P, show $\text{RSA}>1$ 
+when RSA is calculated using the normalization values of either Rose \emph{et al.} \cite{Rose1985} or Miller \emph{et al.} \cite{Miller1987}.}
+\end{figure}
+
+\begin{figure}[H]
+%\includegraphics[width=4in]{figures/ALA_RamaPlotRSA.png}
+\caption{\label{fig:RamaAla}Ramachandran plot for alanine residues in our empirical data set. Coordinates which correspond to RSA values $>1$ are shown in black and are clearly concentrated around coordinates $(-50^\circ,-45^\circ)$. We therefore propose that this region contains the maximally exposed conformation of alanine and should be used for calculating maximum SA.}
+\end{figure}
+
+\begin{figure}[H]
+%\includegraphics[width=6in]{figures/ALA_Rama_HSV.png}
+\caption{\label{fig:heatrama} Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. Only bins which contained at least five observations are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for non-empty bins in (A). Both the empirical and the theoretical approach find the largest SA values in the $\alpha$-helix region around $(-50^\circ,-45^\circ)$. By contrast, the extended conformation $(-120^\circ, 140^\circ)$ leads to relatively low maximum SA.}
+\end{figure}
+
+
+\begin{figure}[H]
+%\includegraphics[width=3.5in]{figures/ALA_DifferenceVPopulation.png}
+\caption{\label{fig:EvC} Difference between theoretically and empirically determined maximum SA values for alanine, across $5^\circ$ by $5^\circ$ bins. As the amount of data per bin increases, the difference between theoretical and empirical maximum SA approaches zero, demonstrating that our two methods converged with increasing amounts of data. Furthermore, the difference between values is frequently zero, even when little data is available for a bin. This observation indicates that our theoretically derived maximum SA values provide a tight bound on the empirically observed ones.}
+\end{figure}
+
+\cleardoublepage
+
+\section*{Tables}
+
+\begin{table}[H]
+\caption{\label{tab:results}Proposed values for SA normalization (in \AA$^2$), compared to previously used scales defined by Rose \emph{et al.}~\cite{Rose1985} and Miller \emph{et al.}~\cite{Miller1987}.}
+
+\begin{center}
+\begin{tabular}{lcccc}
+Residue & Theoretical & Empirical & Miller \emph{et al.} (1987) & Rose \emph{et al.} (1985) \\
+\hline Alanine & 129.0 & 121.0 & 113.0 & 118.1 \\
+Arginine        & 274.0 & 265.0 & 241.0 & 256.0 \\
+Asparagine    & 195.0 & 187.0 & 158.0 & 165.5 \\
+Aspartate      & 193.0 & 184.0 & 151.0 & 158.7 \\
+Cysteine        & 158.0 & 140.0 & 140.0 & 146.1 \\
+Glutamate     & 223.0 & 215.0 & 183.0 & 186.2 \\
+Glutamine      & 224.0 & 215.0 & 189.0 & 193.2  \\
+Glycine          & 104.0 & 98.0 & 85.0 & 88.1  \\
+Histidine        & 209.0 & 208.0 & 194.0 & 202.5  \\
+Isoleucine     & 197.0 & 195.0 & 182.0 & 181.0  \\
+Leucine         & 201.0 & 192.0 & 180.0 & 193.1  \\
+Lysine           & 237.0 & 227.0 & 211.0 & 225.8  \\
+Methionine   & 218.0 & 203.0 & 204.0 & 203.4  \\
+Phenylalanine  & 239.0 & 228.0 & 218.0 & 222.8  \\
+Proline & 159.0 & 159.0& 143.0 & 146.8  \\
+Serine          & 151.0 & 143.0 & 122.0 & 129.8  \\
+Threonine          & 172.0 & 161.0 & 146.0 & 152.5  \\
+Tryptophan          & 282.0 & 265.0 & 259.0 & 266.3  \\
+Tyrosine          & 263.0 & 255.0 & 229.0 & 236.8 \\
+Valine          & 174.0 & 165.0 & 160.0 & 164.5  \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+\caption{\label{tab:Corr}Absolute value of correlation coefficients $r$ between empirically derived and experimentally derived hydrophobicity scales. The largest correlation in each row is highlighted in bold.}
+\begin{center}
+\footnotesize
+\begin{tabular}{lccccc}
+ & \multicolumn{5}{c}{Empirical scale} \\ \cline{2-6}\\[-2ex]
+Experimental scale & Mean RSA (Rose)$^\text{a}$ & Mean RSA (theor)$^\text{b}$ & Mean RSA (emp)$^\text{c}$ & 100\% buried$^\text{d}$ & 95\% buried$^\text{e}$\\
+\hline
+Wolfenden \emph{et al.}$^\text{f}$ & 0.614 & 0.699 & 0.687 & \textbf{0.830} & 0.786 \\
+Kyte \& Doolittle$^\text{g}$ & 0.841 & 0.890 & 0.886 & \textbf{0.956} & \textbf{0.956} \\
+Radzicka \& Wolfenden$^\text{h}$ & 0.804 & 0.860 & 0.857 & 0.848 & \textbf{0.896} \\
+Moon \& Fleming$^\text{i}$ & 0.704 & 0.768 & 0.761 & 0.684 & \bf{0.777} \\
+MacCallum \emph{et al.}$^\text{k}$ & 0.804 & 0.860 & 0.857 & 0.848 & \textbf{0.898} \\
+Fauchere \& Pliska$^\text{l}$ & 0.904 & \textbf{0.911} & 0.910 & 0.734 & 0.882 \\
+Wimley \emph{et al.}$^\text{m}$ & 0.430$^\dagger$ & 0.475 & \textbf{0.480} & 0.325$^\dagger$ & 0.425$^\dagger$ \\
+\hline
+\end{tabular}
+\end{center}
+{\footnotesize
+\begin{raggedright}
+$^\text{a}$Mean RSA of residues in protein structures, as calculated by Rose \emph{et al.}~\cite{Rose1985}.\\
+$^\text{b}$Mean RSA of residues in protein structures, as given in column 2 of Table S2.\\ 
+$^\text{c}$Mean RSA of residues in protein structures, as given in column 3 of Table S2.\\
+$^\text{d}$Fraction of 100\% buried residues, as given in column 4 of Table S2.\\
+$^\text{e}$Fraction of 95\% buried residues, as given in column 5 of Table S2.\\
+$^\text{f}$Transfer energy from vapor to water~\cite{Wolfenden1981}.\\
+$^\text{g}$Hybrid scale based on transfer energy from vapor to water and on the percentages of 95\% and 100\% buried residues in protein structures~\cite{Kyte1981}.\\
+$^\text{h}$Transfer energy from cyclohexane to water~\cite{Radzicka1988}.\\
+$^\text{i}$$\Delta\Delta G$ between the folded and unfolded state of a mutated membrane-inserted protein, outer membrane phospholipase~A~\cite{Moon2011}. \\
+$^\text{k}$Transfer energy calculated from molecular-dynamic simulations of side-chain analogs within a bilayer~\cite{MacCallum2007}.\\
+$^\text{l}$Transfer energy between octanol and water~\cite{Fauchere1983}.\\
+$^\text{m}$Transfer energy of pentapeptides between octanol and water~\cite{Wimley1996}.\\
+$^\dagger$Correlation not statistically significant; all other correlations are significant at $\alpha=0.05$.\\
+\end{raggedright}
+}
+\end{table}
+
+
+\end{document}
+
