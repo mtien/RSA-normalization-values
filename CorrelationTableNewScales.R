@@ -283,11 +283,11 @@ cor.wim.fraction95$p.value)
 
 labels<-c("Rose", "Empirical Mean", "Theoretical Mean", "Empirical Median", "Theoretical Median", "Empirical Sqrt Mean", "Theoretical Sqrt Mean", "Empirical Box-Cox Mean", "Theoretical Box-Cox Mean", "100_Buried", "95_Buried")
 
-Correlations<- data.frame(labels=labels, wolfCorr= wolfCorr, wolfPval=wolfPval, kyteCorr=kyteCorr, kytePval=kytePval, radzCorr= radzCorr, radzPval=radzPval, moonCorr= moonCorr, moonPval=radzPval, macCorr= radzCorr, macPval=radzPval, wimCorr=wimCorr, wimPval=wimPval, fauCorr=fauCorr, fauPval=fauPval)
+Correlations<- data.frame(labels=labels, wolfCorr= wolfCorr, wolfPval=wolfPval, kyteCorr=kyteCorr, kytePval=kytePval, radzCorr= radzCorr, radzPval=radzPval, moonCorr= moonCorr, moonPval=radzPval, macCorr= macCorr, macPval=macPval, wimCorr=wimCorr, wimPval=wimPval, fauCorr=fauCorr, fauPval=fauPval)
 write.table(Correlations, "Hydrophobicity_Correlations.txt",quote=FALSE, row.names=FALSE, sep='\t')
 
 
-Corr_trans<-data.frame(rbind(wolfCorr= wolfCorr, wolfPval=wolfPval, kyteCorr=kyteCorr, kytePval=kytePval, radzCorr= radzCorr, radzPval=radzPval, moonCorr= moonCorr, moonPval=radzPval, macCorr= radzCorr, macPval=radzPval, wimCorr=wimCorr, wimPval=wimPval, fauCorr=fauCorr, fauPval=fauPval))
+Corr_trans<-data.frame(rbind(wolfCorr= wolfCorr, wolfPval=wolfPval, kyteCorr=kyteCorr, kytePval=kytePval, radzCorr= radzCorr, radzPval=radzPval, moonCorr= moonCorr, moonPval=radzPval, macCorr= macCorr, macPval=macPval, wimCorr=wimCorr, wimPval=wimPval, fauCorr=fauCorr, fauPval=fauPval))
 colnames(Corr_trans)<-labels
 write.table(Corr_trans, "Hydrophobicity_Correlations_Transposed.txt",quote=FALSE, row.names=FALSE, sep='\t')
 
