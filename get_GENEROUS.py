@@ -4,6 +4,7 @@ import math
 
 directory_bin_all="/Users/Matthew/Documents/GitHub/RSA-normalization-values/AllBins"
 directory_bin_gen="/Users/Matthew/Documents/GitHub/RSA-normalization-values/GenerousBins"
+directory_bin_corr="/Users/Matthew/Documents/GitHub/RSA-normalization-values/Correlation"
 
 
 def inbounds(pair):
@@ -30,7 +31,7 @@ def search_generous(position, counted):
     return counted
                 
 
-fileIn= open("NormalizationValuesByPercentDataCoverage.txt")
+fileIn= open(os.path.join(directory_bin_corr, "NormalizationValuesByPercentDataCoverage.txt"))
 fileIn.readline()
 
 for line in fileIn:
@@ -49,7 +50,7 @@ for line in fileIn:
         phi= int(data[0])
         psi= int(data[1])
         obs_bin_pop= int(data[4])
-        if(obs_bin_pop>= ALLOWED_cutoff):
+        if(obs_bin_pop> ALLOWED_cutoff):
             rama.append((phi,psi))
     fdic.close()
     

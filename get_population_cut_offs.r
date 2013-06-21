@@ -56,6 +56,16 @@ for(a in 1:length(Aa))
   max_emp_gen<-c(max_emp_gen, max(d$max_obs_SA))
 }
 
+data2<-data.frame(AminoAcid=Aa, 
+                 max_theo_100=max_theo_100,
+                 max_emp_100= max_emp_100,
+                 pop_97= pop_97,
+                 max_theo_97=max_theo_97,
+                 max_emp_97=max_emp_97,
+                 pop_80=pop_80,
+                 max_theo_80=max_theo_80,
+                 max_emp_80=max_emp_80)
+
 data<-data.frame(AminoAcid=Aa, 
                    max_theo_100=max_theo_100,
                    max_emp_100= max_emp_100,
@@ -70,5 +80,5 @@ data<-data.frame(AminoAcid=Aa,
 
 
 setwd("~/GitHub/RSA-normalization-values/Correlation/")
-##write.table(data, file="NormalizationValuesByPercentDataCoverage.txt", quote=FALSE, row.names=FALSE, sep='\t')
+##write.table(data2, file="NormalizationValuesByPercentDataCoverage.txt", quote=FALSE, row.names=FALSE, sep='\t')
 write.table(data, file="NormalizationValuesByPercentDataCoverageAndGenerous.txt", quote=FALSE, row.names=FALSE, sep='\t')

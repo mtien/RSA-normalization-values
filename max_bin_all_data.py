@@ -45,8 +45,8 @@ for line in filein:
     psi= float(info[2])
     phi= float(info[1])
     sa= float(info[0])
-    b=((int(phi)/5)*5, (int(psi)/5)*5)
-    if(sa > bins[b][2]):
+    b=( (int(phi)/5)*5, (int(psi)/5)*5 )
+    if(sa > bins[b][1]):
         bins[b][1]=sa
 
 filein.close()

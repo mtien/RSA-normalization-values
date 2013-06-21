@@ -116,10 +116,13 @@ meanEmpBC<-c(meanEmpBC, mean( bct(ERSA_transformed, lambdaE) ))
 ##out<-data.frame(names=AA, Empirical_Mean= meanEmp, Empirical_Log_mean=meanEmpLog, Theoretical_Mean=meanTheo, Theoretical_LOG_Mean= meanTheoLog)
 ##mean_normal_SQRT<-data.frame(names=AA, Empirical_Mean= meanEmp, Empirical_Sqrt_mean=meanEmpLog, Theoretical_Mean=meanTheo, Theoretical_Sqrt_Mean= meanTheoLog)
 
+setwd("~/GitHub/RSA-normalization-values/Correlation/")
 Scales<-data.frame(AminoAcid=AA, meanEmp=meanEmp, medianEmp=medianEmp,
 meanEmpSqrt=meanEmpSqrt, meanEmpBC= meanEmpBC, meanTheo=meanTheo, 
 medianTheo=medianTheo, meanTheoSqrt=meanTheoSqrt, meanTheoBC= meanTheoBC,
 ScaleFrac=ScaleFrac, ScaleFrac95= ScaleFrac95)
+
+write.table(Scales, file="Hydrophobicity_Scales_updated.txt",quote=FALSE, row.names=FALSE, sep='\t')
 
 MeanScales<-data.frame(AminoAcid=AA, meanEmp=meanEmp, medianEmp=medianEmp,
 meanEmpSqrt=meanEmpSqrt, meanEmpBC= meanEmpBC, meanTheo=meanTheo, 
@@ -128,11 +131,17 @@ medianTheo=medianTheo, meanTheoSqrt=meanTheoSqrt, meanTheoBC= meanTheoBC)
 BuriedScales<-data.frame(AminoAcid=AA,
 ScaleFrac=ScaleFrac, ScaleFrac95= ScaleFrac95)
 
-setwd("~/GitHub/RSA-normalization-values/Correlation/")
+Fig_Scales<-Scales<-data.frame(AminoAcid=AA, 
+                               meanTheo=meanTheo, 
+                               meanEmp=meanEmp,
+                               ScaleFrac=ScaleFrac, 
+                               ScaleFrac95= ScaleFrac95)
+
+
+write.table(Fig_Scales, file="Hydrophobicity_Scales_updated_Figures.txt",quote=FALSE, row.names=FALSE, sep='\t')
+
 ##write.table(MeanScales, file="MeanHydrophobicityScales.txt", quote=FALSE, row.names=FALSE, sep='\t')
 ##write.table(BuriedScales, file="BuriedHydrophobicityScales.txt", quote=FALSE, row.names=FALSE, sep='\t')
-
-write.table(Scales, file="Hydrophobicity_Scales_updated.txt",quote=FALSE, row.names=FALSE, sep='\t')
 
 Scales19<-data.frame(AminoAcid=get19(AA), meanEmp=get19(meanEmp), 
                      medianEmp=get19(medianEmp),meanEmpSqrt=get19(meanEmpSqrt), 
