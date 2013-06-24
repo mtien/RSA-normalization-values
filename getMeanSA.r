@@ -13,7 +13,7 @@ library("MASS")
 
 AA<-c("ALA", "ARG", "ASN", "ASP", "CYS", "GLN", "GLU", "GLY", "HIS", "ILE", "LEU", "LYS", "MET", "PHE", "PRO", "SER", "THR", "TRP", "TYR", "VAL")
 aa<-c("Ala", "Arg", "Asn", "Asp", "Cys", "Gln", "Glu", "Gly", "His", "Ile", "Leu", "Lys", "Met", "Phe", "Pro", "Ser", "Thr", "Trp", "Tyr", "Val")
-setwd("~/GitHub/RSA-normalization-values/Correlation/")
+setwd("~/GitHub/RSA-normalization-values/")
 NormValues<- read.table("NormalizationValuesByPercentDataCoverageAndGenerous.txt", row.names=1, header=TRUE)
 
 Theoretical<-NormValues$max_theo_97
