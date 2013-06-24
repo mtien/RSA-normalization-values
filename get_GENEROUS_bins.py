@@ -23,11 +23,17 @@ def search_generous(position, counted):
         for j in range(0, 21, 5):
             if(i+j <=20):
                 neg= (phi-i, psi-j)
+                second= (phi-i, psi+j)
                 pos= (phi+i, psi+j)
+                fourth= (phi+i, psi-j)
                 if( neg not in counted and inbounds(neg) ):
                     counted.append(neg)
                 if( pos not in counted and inbounds(pos) ):
                     counted.append(pos)
+                if( second not in counted and inbounds(second)):
+                    counted.append(second)
+                if( fourth not in counted and inbounds(fourth)):
+                    counted.append(fourth)
     return counted
                 
 
