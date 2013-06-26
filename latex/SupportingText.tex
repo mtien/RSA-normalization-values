@@ -41,29 +41,28 @@ Matthew A. Tien, Austin G. Meyer, Stephanie J. Spielman, Claus O. Wilke
 
 \begin{center}
 \footnotesize
-\begin{tabular}{lcccccccc}
-&  \multicolumn{2}{c}{Empirical} & ~~~& \multicolumn{2}{c}{Theoretical}\\\cline{2-3}\cline{5-6}
-Residue & max_theo_100 & max_emp_100 & & max_theo_97 & max_emp_97 & & max_theo 80 & max_emp_80 & & max_theo_gen & max_emp_gen \\
-\hline Alanine   & $138$ & $121$ & & $129$ & $121$ & & $128$ & $121$ & & $132$ & $121$\\
-Arginine         & $285$ & $265$ & & $274$ & $265$ & & $274$ & $265$ & & $280$ & $265$\\
-Asparagine       & $204$ & $187$ & & $195$ & $187$ & & $193$ & $187$ & & $199$ & $187$\\
-Aspartate        & $204$ & $187$ & & $195$ & $187$ & & $193$ & $187$ & & $199$ & $187$\\
-Cysteine         & $169$ & $148$ & & $167$ & $148$ & & $157$ & $133$ & & $167$ & $148$\\
-Glutamine        & $234$ & $214$ & & $225$ & $214$ & & $224$ & $214$ & & $228$ & $214$\\
-Glutamate        & $233$ & $214$ & & $223$ & $214$ & & $224$ & $214$ & & $227$ & $214$\\
-Glycine          & $114$ & $\phantom{0}97$ & & $104$ & $97$ & & $104$ & $97$ & & $109$ & $97$\\
-Histidine        & $213$ & $216$ & & $209$ & $216$ & & $209$ & $216$ & & $209$ & $216$\\
-Isoleucine       & $208$ & $195$ & & $197$ & $195$ & & $196$ & $195$ & & $201$ & $195$\\
-Leucine          & $211$ & $191$ & & $201$ & $191$ & & $199$ & $191$ & & $205$ & $191$\\
-Lysine           & $246$ & $230$ & & $236$ & $230$ & & $235$ & $229$ & & $240$ & $230$\\
-Methionine       & $227$ & $203$ & & $224$ & $203$ & & $218$ & $203$ & & $226$ & $203$\\
-Phenylalanine    & $251$ & $228$ & & $240$ & $228$ & & $236$ & $226$ & & $244$ & $228$\\
-Proline          & $166$ & $154$ & & $159$ & $154$ & & $157$ & $154$ & & $164$ & $154$\\
-Serine           & $161$ & $143$ & & $155$ & $143$ & & $150$ & $143$ & & $158$ & $143$\\
-Threonine        & $182$ & $163$ & & $172$ & $163$ & & $171$ & $161$ & & $176$ & $163$\\
-Tryptophan       & $295$ & $264$ & & $285$ & $264$ & & $282$ & $262$ & & $293$ & $264$\\
-Tyrosine         & $274$ & $255$ & & $263$ & $255$ & & $262$ & $255$ & & $266$ & $255$\\
-Valine           & $184$ & $166$ & & $174$ & $165$ & & $173$ & $165$ & & $177$ & $166$\\
+\begin{tabular}{lccccccccc}
+Residue & max-emp-100 & max-emp-97 & max-emp-80 & max-emp-gen & & max-theo-100 & max-theo-97 & max-theo-80 & max-theo-gen\\
+\hline Alanine   & $121$ & $121$ & $121$ & $121$ & & $138$ & $129$ & $128$ & $132$\\
+Arginine         & $265$ & $265$ & $265$ & $265$ & & $285$ & $274$ & $274$ & $280$\\
+Asparagine       & $187$ & $187$ & $187$ & $187$ & & $204$ & $195$ & $193$ & $199$\\
+Aspartate        & $187$ & $187$ & $187$ & $187$ & & $204$ & $193$ & $192$ & $197$\\
+Cysteine         & $148$ & $148$ & $133$ & $148$ & & $169$ & $167$ & $157$ & $167$\\
+Glutamate        & $214$ & $214$ & $214$ & $214$ & & $233$ & $223$ & $222$ & $227$\\
+Glutamine        & $214$ & $214$ & $214$ & $214$ & & $234$ & $225$ & $224$ & $228$\\
+Glycine          & $\phantom{0}97$ & $\phantom{0}97$ & $\phantom{0}97$ & $\phantom{0}97$ & & $114$ & $104$ & $104$ & $109$\\
+Histidine        & $216$ & $216$ & $216$ & $216$ & & $213$ & $209$ & $209$ & $209$\\
+Isoleucine       & $195$ & $195$ & $195$ & $195$ & & $208$ & $197$ & $196$ & $201$\\
+Leucine          & $191$ & $191$ & $191$ & $191$ & & $211$ & $201$ & $199$ & $205$\\
+Lysine           & $230$ & $230$ & $229$ & $230$ & & $246$ & $236$ & $235$ & $240$\\
+Methionine       & $203$ & $203$ & $203$ & $203$ & & $227$ & $224$ & $218$ & $226$\\
+Phenylalanine    & $228$ & $228$ & $226$ & $228$ & & $251$ & $240$ & $236$ & $244$\\
+Proline          & $154$ & $154$ & $154$ & $154$ & & $166$ & $159$ & $157$ & $164$\\
+Serine           & $143$ & $143$ & $143$ & $143$ & & $161$ & $155$ & $150$ & $158$\\
+Threonine        & $163$ & $163$ & $161$ & $163$ & & $182$ & $172$ & $171$ & $176$\\
+Tryptophan       & $264$ & $264$ & $262$ & $264$ & & $295$ & $285$ & $282$ & $293$\\
+Tyrosine         & $255$ & $255$ & $255$ & $255$ & & $274$ & $263$ & $262$ & $266$\\
+Valine           & $166$ & $165$ & $165$ & $166$ & & $184$ & $174$ & $173$ & $177$\\
 \hline
 \end{tabular}
 \end{center}
@@ -72,15 +71,14 @@ Valine           & $184$ & $166$ & & $174$ & $165$ & & $173$ & $165$ & & $177$ &
 \begin{center}
 \footnotesize
 \begin{tabular}{lcccccccc}
-&  \multicolumn{2}{c}{Empirical} & ~~~& \multicolumn{2}{c}{Theoretical}\\\cline{2-3}\cline{5-6}
-Residue & pop_97 & pop_80 \\
+Residue & pop-97 & pop-80 \\
 \hline Alanine   & $4$ & $47$ \\
 Arginine         & $2$ & $23$ \\
 Asparagine       & $2$ & $15$ \\
 Aspartate        & $3$ & $20$ \\
 Cysteine         & $0$ & $\phantom{0}5$ \\
-Glutamine        & $2$ & $18$ \\
 Glutamate        & $3$ & $34$ \\
+Glutamine        & $2$ & $18$ \\
 Glycine          & $2$ & $15$ \\
 Histidine        & $1$ & $\phantom{0}9$ \\
 Isoleucine       & $6$ & $40$ \\
@@ -106,46 +104,46 @@ Residue & $\phi$ & $\psi$ & & $\phi$ & $\psi$ \\
 \hline Alanine   & $-66.7^{\circ}$ & $-13.1^{\circ}$ & & $-60^{\circ}$ & $-15^{\circ}$\\
                  & $-52.1^{\circ}$ & $-33.6^{\circ}$ & &\\
                  & $-51.9^{\circ}$ & $-37.9^{\circ}$ & &\\
-Arginine        & $-79.2^{\circ}$ & $-20.2^{\circ}$ & & $-70^{\circ}$ & $-5^{\circ}$ \\
+Arginine         & $-79.2^{\circ}$ & $-20.2^{\circ}$ & & $-70^{\circ}$ & ~\,$-5^{\circ}$ \\
 		 &	&	& & $-70^{\circ}$ & $-25^{\circ}$\\
 		 &	&	& & $-60^{\circ}$ & $-15^{\circ}$ to $-10^{\circ}$\\
 		 &	&	& & $-55^{\circ}$ & $-30^{\circ}$\\
                  &      &       & & $-40^{\circ}$ & $-50^{\circ}$\\      
-Asparagine       & $-94.8^{\circ}$ & $-3.4^{\circ}$ & & $-50^{\circ}$ & $-40^{\circ}$ \\
+Asparagine       & $-94.8^{\circ}$ & ~\,$-3.4^{\circ}$ & & $-50^{\circ}$ & $-40^{\circ}$ \\
                  &      &       & & $-50^{\circ}$ & $-30^{\circ}$\\
 		 &      &       & & $\phantom{-}70^{\circ}$ & ~\,$-5^{\circ}$\\
-Aspartate    & $-79.4^{\circ}$ & $83.0^{\circ}$ & & $70^{\circ}$ & $-5^{\circ}$ \\
-Cysteine        & $-87.7^{\circ}$ & $-45.1^{\circ}$ & & $60^{\circ}$ & $-40^{\circ}$ \\
-Glutamine      & $-65.5^{\circ}$ & $-24.0^{\circ}$ & & $70^{\circ}$ & $-5^{\circ}$\\
-Glutamate     & $-55.0^{\circ}$ & $-49.9^{\circ}$ & & $-60^{\circ}$ & $-15^{\circ}$\\
-Glycine          & $80.2^{\circ}$ & $7.2^{\circ}$ & & $-75^{\circ}$ & $20^{\circ}$  \\
-                 &      &       & & $-75^{\circ}$ & $50^{\circ}$\\
-                 &      &       & & $-70^{\circ}$ & $0^{\circ}$\\
+Aspartate        & $-79.4^{\circ}$ & $\phantom{-}83.0^{\circ}$ & & $\phantom{-}70^{\circ}$ & ~\,$-5^{\circ}$ \\
+Cysteine         & $-87.7^{\circ}$ & $-45.1^{\circ}$ & & $\phantom{-}60^{\circ}$ & $-40^{\circ}$ \\
+Glutamate        & $-55.0^{\circ}$ & $-49.9^{\circ}$ & & $-60^{\circ}$ & $-15^{\circ}$\\
+Glutamine        & $-65.5^{\circ}$ & $-24.0^{\circ}$ & & $\phantom{-}70^{\circ}$ & ~\,$-5^{\circ}$\\
+Glycine          & $\phantom{-}80.2^{\circ}$ & ~\,$\phantom{-}7.2^{\circ}$ & & $-75^{\circ}$ & $\phantom{-}20^{\circ}$  \\
+                 &      &       & & $-75^{\circ}$ & $\phantom{-}50^{\circ}$\\
+                 &      &       & & $-70^{\circ}$ & ~\,$\phantom{-}0^{\circ}$\\
                  &      &       & & $-65^{\circ}$ & $-10^{\circ}$\\
                  &      &       & & $-60^{\circ}$ & $-15^{\circ}$\\
                  &      &       & & $-50^{\circ}$ & $-25^{\circ}$\\
-                 &      &       & & $70^{\circ}$ & $-15^{\circ}$\\
-                 &      &       & & $75^{\circ}$ & $-30^{\circ}$\\
-Histidine        & $51.2^{\circ}$ & $32.4^{\circ}$ & & $-180^{\circ}$ & $155^{\circ}$  \\
+                 &      &       & & $\phantom{-}70^{\circ}$ & $-15^{\circ}$\\
+                 &      &       & & $\phantom{-}75^{\circ}$ & $-30^{\circ}$\\
+Histidine        & $\phantom{-}51.2^{\circ}$ & $\phantom{-}32.4^{\circ}$ & & $-180^{\circ}$ & ~$155^{\circ}$  \\
 		 &	 &	& & $-80^{\circ}$ & $170^{\circ}$ to $175^{\circ}$ \\
-                 &       &      & & $-80^{\circ}$ to $-75^{\circ}$ & $130^{\circ}$ \\
+                 &       &      & & $-80^{\circ}$ to $-75^{\circ}$ & ~$130^{\circ}$ \\
 Isoleucine      & $-64.1^{\circ}$ & $-21.9^{\circ}$ & & $-55^{\circ}$ & $-25^{\circ}$ \\
 		&	&	& & $-50^{\circ}$ & $-40^{\circ}$ \\
-Leucine         & $-81.6^{\circ}$ & $-13.5^{\circ}$ & & $-70^{\circ}$ & $-5^{\circ}$  \\
+Leucine         & $-81.6^{\circ}$ & $-13.5^{\circ}$ & & $-70^{\circ}$ &  ~\,$-5^{\circ}$  \\
                 & $-63.5^{\circ}$ & $-44.5^{\circ}$ & & & \\
                 & $-60.9^{\circ}$ & $-29.3^{\circ}$ & & & \\
                 & $-55.8^{\circ}$ & $-36.4^{\circ}$ & & & \\     
-Lysine          & $63.1^{\circ}$ & $23.1^{\circ}$ & & $-45^{\circ}$ & $-45^{\circ}$ to $-40^{\circ}$ \\
-Methionine      & $-67.5^{\circ}$ & $-27.5^{\circ}$ & & $50^{\circ}$ & $-40^{\circ}$  \\
-Phenylalanine   & $-50.3^{\circ}$ & $135.2^{\circ}$ & & $-45^{\circ}$ & $-40^{\circ}$  \\
-                &       &       & & $70^{\circ}$ & $-10^{\circ}$ \\
+Lysine          & $\phantom{-}63.1^{\circ}$ & $\phantom{-}23.1^{\circ}$ & & $-45^{\circ}$ & $-45^{\circ}$ to $-40^{\circ}$ \\
+Methionine      & $-67.5^{\circ}$ & $-27.5^{\circ}$ & & $\phantom{-}50^{\circ}$ & $-40^{\circ}$  \\
+Phenylalanine   & $-50.3^{\circ}$ & \,\,$135.2^{\circ}$ & & $-45^{\circ}$ & $-40^{\circ}$  \\
+                &       &       & & $\phantom{-}70^{\circ}$ & $-10^{\circ}$ \\
 Proline         &  $-63.8^{\circ}$ & $-21.6^{\circ}$ & & $-55^{\circ}$ & $-20^{\circ}$  \\
-Serine          & $-58.1^{\circ}$ & $-27.3^{\circ}$ & & $65^{\circ}$ & $-45^{\circ}$ \\
-		& $-103.4^{\circ}$ & $1.1^{\circ}$ & & & \\
+Serine          & $-58.1^{\circ}$ & $-27.3^{\circ}$ & & $\phantom{-}65^{\circ}$ & $-45^{\circ}$ \\
+		& $-103.4^{\circ}$ & $\phantom{-}\phantom{0}1.1^{\circ}$ & & & \\
 Threonine       & $-57.4^{\circ}$ & $-17.3^{\circ}$ & & $-45^{\circ}$ & $-45^{\circ}$  \\
-Tryptophan      & $-68.0^{\circ}$ & $-62.3^{\circ}$ & & $65^{\circ}$ & $-40^{\circ}$ to $-35^{\circ}$  \\
-		&       &       & & $70^{\circ}$ & $-55^{\circ}$  \\
-Tyrosine        & $-67.6^{\circ}$ & $-9.8^{\circ}$ & & $-50^{\circ}$ & $-40^{\circ}$ to $-35^{\circ}$ \\
+Tryptophan      & $-68.0^{\circ}$ & $-62.3^{\circ}$ & & $\phantom{-}65^{\circ}$ & $-40^{\circ}$ to $-35^{\circ}$  \\
+		&       &       & & $\phantom{-}70^{\circ}$ & $-55^{\circ}$  \\
+Tyrosine        & $-67.6^{\circ}$ & ~\,$-9.8^{\circ}$ & & $-50^{\circ}$ & $-40^{\circ}$ to $-35^{\circ}$ \\
                 &       &       & & $-45^{\circ}$ & $-45^{\circ}$ \\
 Valine          & $-56.2^{\circ}$ & $-31.7^{\circ}$ & & $-55^{\circ}$ & $-25^{\circ}$  \\
 \hline
