@@ -37,12 +37,11 @@ Matthew A. Tien, Austin G. Meyer, Stephanie J. Spielman, Claus O. Wilke
 \newpage
 \subsection*{Supporting Tables}
 
-\noindent Table S1. Backbone conformation of maximally exposed trimer structures. Multiple rows per residue indicate alternative conformations with comparable solvent exposure.
-
 \begin{center}
-\footnotesize
+\scriptsize
 \begin{tabular}{lccccccccc}
-Residue & max-emp-100 & max-emp-97 & max-emp-80 & max-emp-gen & & max-theo-100 & max-theo-97 & max-theo-80 & max-theo-gen\\
+ & \multicolumn{4}{c}{Empirical} &&\multicolumn{4}{c}{Theoretical}\\\cline{2-5}\cline{7-10}
+Residue          & all & allowed & core & generous & & all & allowed & core & generous\\
 \hline Alanine   & $121$ & $121$ & $121$ & $121$ & & $138$ & $129$ & $128$ & $132$\\
 Arginine         & $265$ & $265$ & $265$ & $265$ & & $285$ & $274$ & $274$ & $280$\\
 Asparagine       & $187$ & $187$ & $187$ & $187$ & & $204$ & $195$ & $193$ & $199$\\
@@ -69,7 +68,6 @@ Valine           & $166$ & $165$ & $165$ & $166$ & & $184$ & $174$ & $173$ & $17
 
 
 \begin{center}
-\footnotesize
 \begin{tabular}{lcccccccc}
 Residue & pop-97 & pop-80 \\
 \hline Alanine   & $4$ & $47$ \\
@@ -95,6 +93,10 @@ Valine           & $7$ & $50$ \\
 \hline
 \end{tabular}
 \end{center}
+
+
+\noindent Table S1. Backbone conformation of maximally exposed trimer structures. Multiple rows per residue indicate alternative conformations with comparable solvent exposure.
+
 
 \begin{center}
 \footnotesize
