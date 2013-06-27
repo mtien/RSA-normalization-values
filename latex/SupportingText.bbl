@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{WangDunbrack2003}
+G.~Wang and R.~L. Dunbrack.
+\newblock {PISCES:} a protein sequence culling server.
+\newblock {\em Bioinformatics}, 19:1589--1591, 2003.
+
+\bibitem{Kabsch1983}
+W.~Kabsch and C.~Sander.
+\newblock Dictionary of protein secondary structure: pattern recognition of
+  hydrogen-bonded and geometrical features.
+\newblock {\em Biopolymers}, 22:2577--2637, 1983.
+
+\end{thebibliography}

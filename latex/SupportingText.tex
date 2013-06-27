@@ -21,55 +21,77 @@
 \end{center}
 
 \bigskip
-\begin{center}
-Matthew A. Tien, Austin G. Meyer, Stephanie J. Spielman, Claus O. Wilke
-\end{center}
+\noindent Matthew A. Tien, Austin G. Meyer, Dariya K. Sydykova, Stephanie J. Spielman, Claus O. Wilke
+
 \bigskip
 
 \subsection*{Supporting Figures}
-%\centerline{\includegraphics[width=3.5in]{figures/Ala_dist.png}}
+\centerline{\includegraphics[width=3.5in]{figures/Alanine_RSA_distribution.pdf}}
 
 \noindent Figure S1. Distribution of RSA values for alanine. RSA was calculated using our theoretically determined normalization values. This distribution is highly non-normal with a strong right skew. Therefore, mean RSA is a poor measure of center for this distribution. Similarly skewed distributions are found for most amino acids.
 
+\newpage
+\centerline{\includegraphics[width=6in]{figures/Ala_Rama_HSV_ALL_edited.pdf}}
 
+\noindent Figure S2. Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. All non-empty bins are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for non-empty bins in (A).
+
+\vspace*{.5in}
+
+\centerline{\includegraphics[width=6in]{figures/Ala_Rama_HSV_GENEROUS_edited.pdf}}
+
+\noindent Figure S3. Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. All non-empty bins in the GENEROUS regions are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for all bins in the GENEROUS region.
+
+\newpage
+
+\centerline{\includegraphics[width=6in]{figures/Ala_Rama_HSV_CORE_edited.pdf}}
+
+\noindent Figure S4. Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. All bins in the CORE region are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for all bins in the CORE region.
 
 
 \newpage
 \subsection*{Supporting Tables}
 
+
+
+\noindent Table S1. Maximum SA values observed in the empirical and the theoretical data sets.
+
 \begin{center}
 \scriptsize
 \begin{tabular}{lccccccccc}
- & \multicolumn{4}{c}{Empirical} &&\multicolumn{4}{c}{Theoretical}\\\cline{2-5}\cline{7-10}
-Residue          & all & allowed & core & generous & & all & allowed & core & generous\\
-\hline Alanine   & $121$ & $121$ & $121$ & $121$ & & $138$ & $129$ & $128$ & $132$\\
-Arginine         & $265$ & $265$ & $265$ & $265$ & & $285$ & $274$ & $274$ & $280$\\
-Asparagine       & $187$ & $187$ & $187$ & $187$ & & $204$ & $195$ & $193$ & $199$\\
-Aspartate        & $187$ & $187$ & $187$ & $187$ & & $204$ & $193$ & $192$ & $197$\\
-Cysteine         & $148$ & $148$ & $133$ & $148$ & & $169$ & $167$ & $157$ & $167$\\
-Glutamate        & $214$ & $214$ & $214$ & $214$ & & $233$ & $223$ & $222$ & $227$\\
-Glutamine        & $214$ & $214$ & $214$ & $214$ & & $234$ & $225$ & $224$ & $228$\\
-Glycine          & $\phantom{0}97$ & $\phantom{0}97$ & $\phantom{0}97$ & $\phantom{0}97$ & & $114$ & $104$ & $104$ & $109$\\
+ & \multicolumn{4}{c}{Empirical} &&\multicolumn{4}{c}{Theoretical}\\\cline{2-5}\cline{7-10}\\[-1.6ex]
+Residue          & ALL & GENEROUS & ALLOWED & CORE & & ALL & GENEROUS & ALLOWED & CORE\\
+\hline Alanine   & $121$ & $121$ & $121$ & $121$ & & $138$ & $132$ & $129$ & $128$\\
+Arginine         & $265$ & $265$ & $265$ & $265$ & & $285$ & $280$ & $274$ & $274$\\
+Asparagine       & $187$ & $187$ & $187$ & $187$ & & $204$ & $199$ & $195$ & $193$\\
+Aspartate        & $187$ & $187$ & $187$ & $187$ & & $204$ & $197$ & $193$ & $192$\\
+Cysteine         & $148$ & $148$ & $148$ & $133$ & & $169$ & $167$ & $167$ & $157$\\
+Glutamate        & $214$ & $214$ & $214$ & $214$ & & $233$ & $227$ & $223$ & $222$\\
+Glutamine        & $214$ & $214$ & $214$ & $214$ & & $234$ & $228$ & $225$ & $224$\\
+Glycine          & $\phantom{0}97$ & $\phantom{0}97$ & $\phantom{0}97$ & $\phantom{0}97$ & & $114$ & $109$ & $104$ & $104$\\
 Histidine        & $216$ & $216$ & $216$ & $216$ & & $213$ & $209$ & $209$ & $209$\\
-Isoleucine       & $195$ & $195$ & $195$ & $195$ & & $208$ & $197$ & $196$ & $201$\\
-Leucine          & $191$ & $191$ & $191$ & $191$ & & $211$ & $201$ & $199$ & $205$\\
-Lysine           & $230$ & $230$ & $229$ & $230$ & & $246$ & $236$ & $235$ & $240$\\
-Methionine       & $203$ & $203$ & $203$ & $203$ & & $227$ & $224$ & $218$ & $226$\\
-Phenylalanine    & $228$ & $228$ & $226$ & $228$ & & $251$ & $240$ & $236$ & $244$\\
-Proline          & $154$ & $154$ & $154$ & $154$ & & $166$ & $159$ & $157$ & $164$\\
-Serine           & $143$ & $143$ & $143$ & $143$ & & $161$ & $155$ & $150$ & $158$\\
-Threonine        & $163$ & $163$ & $161$ & $163$ & & $182$ & $172$ & $171$ & $176$\\
-Tryptophan       & $264$ & $264$ & $262$ & $264$ & & $295$ & $285$ & $282$ & $293$\\
-Tyrosine         & $255$ & $255$ & $255$ & $255$ & & $274$ & $263$ & $262$ & $266$\\
-Valine           & $166$ & $165$ & $165$ & $166$ & & $184$ & $174$ & $173$ & $177$\\
+Isoleucine       & $195$ & $195$ & $195$ & $195$ & & $208$ & $201$ & $197$ & $196$\\
+Leucine          & $191$ & $191$ & $191$ & $191$ & & $211$ & $205$ & $201$ & $199$\\
+Lysine           & $230$ & $230$ & $230$ & $229$ & & $246$ & $240$ & $236$ & $235$\\
+Methionine       & $203$ & $203$ & $203$ & $203$ & & $227$ & $226$ & $224$ & $218$\\
+Phenylalanine    & $228$ & $228$ & $228$ & $226$ & & $251$ & $244$ & $240$ & $236$\\
+Proline          & $154$ & $154$ & $154$ & $154$ & & $166$ & $164$ & $159$ & $157$\\
+Serine           & $143$ & $143$ & $143$ & $143$ & & $161$ & $158$ & $155$ & $150$\\
+Threonine        & $163$ & $163$ & $163$ & $161$ & & $182$ & $176$ & $172$ & $171$\\
+Tryptophan       & $264$ & $264$ & $264$ & $262$ & & $295$ & $293$ & $285$ & $282$\\
+Tyrosine         & $255$ & $255$ & $255$ & $255$ & & $274$ & $266$ & $263$ & $262$\\
+Valine           & $166$ & $166$ & $165$ & $165$ & & $184$ & $177$ & $174$ & $173$\\
 \hline
 \end{tabular}
 \end{center}
 
+\bigskip
+
+\noindent Table S2. Bin cutoffs used to define the ALLOWED ($>97\%$ of data) and the CORE ($>80\%$ of data) regions. For each region and amino acid, bins with as many or fewer observations as listed were discarded.
 
 \begin{center}
+\footnotesize
 \begin{tabular}{lcccccccc}
-Residue & pop-97 & pop-80 \\
+Residue & ALLOWED & CORE \\
 \hline Alanine   & $4$ & $47$ \\
 Arginine         & $2$ & $23$ \\
 Asparagine       & $2$ & $15$ \\
@@ -94,8 +116,8 @@ Valine           & $7$ & $50$ \\
 \end{tabular}
 \end{center}
 
-
-\noindent Table S1. Backbone conformation of maximally exposed trimer structures. Multiple rows per residue indicate alternative conformations with comparable solvent exposure.
+\newpage
+\noindent Table S3. Backbone conformation of maximally exposed trimer structures. Multiple rows per residue indicate alternative conformations with comparable solvent exposure.
 
 
 \begin{center}
@@ -153,7 +175,7 @@ Valine          & $-56.2^{\circ}$ & $-31.7^{\circ}$ & & $-55^{\circ}$ & $-25^{\c
 \end{center}
 
 \newpage
-\noindent Table S2. Hydrophobicity scales derived in this work.
+\noindent Table S4. Hydrophobicity scales derived in this work.
 \bigskip
 
 \centerline{
@@ -216,7 +238,7 @@ x^2 + y^2 + z^2 &= \ell^2, \label{eq:dist}\\
 Ix + Jy +Kz &=0. \label{eq:plane}
 \end{align}
 
-%\centerline{\includegraphics[width=3.5in]{figures/atom_placement}}
+\centerline{\includegraphics[width=3.5in]{figures/atom_placement}}
 \noindent {\small Schematic drawing of the placement of an atom relative to three reference atoms A, B, and C. Atom C is assumed to be at the origin. The vector from C to B is denoted by $\mathbf{b}$, with coordinates $(x_\mathbf{b}, y_\mathbf{b}, z_\mathbf{b})$. Similarly, the vector from C to A is denoted by $\mathbf{a}$, with coordinates $(x_\mathbf{a}, y_\mathbf{a}, z_\mathbf{a})$. The distance from C to X is $\ell$, the angle between CB and CX is $\theta$, and the dihedral angle between ABC and CX is $\tau$.}
 \bigskip
 
