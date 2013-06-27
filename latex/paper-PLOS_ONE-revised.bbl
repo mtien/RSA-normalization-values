@@ -1,0 +1,198 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{Chothia1976}
+Chothia C (1976) The nature of the accessible and buried surfaces in proteins.
+\newblock J Mol Biol : 1--14.
+\bibAnnoteFile{Chothia1976}
+
+\bibitem{Rose1985}
+Rose GD, Geselowitz AR, Lesser GJ, Lee RH, Zehfus MH (1985) Hydrophobicity of
+  amino acid residues in globular proteins.
+\newblock Science 229: 834--838.
+\bibAnnoteFile{Rose1985}
+
+\bibitem{Miller1987}
+Miller S, Janin J, Lesk AM, Chothia C (1987) Interior and surface of monomeric
+  proteins.
+\newblock J Mol Biol 196: 641--656.
+\bibAnnoteFile{Miller1987}
+
+\bibitem{Moelbert2004}
+Moelbert S, Emberly E, Tang C (2004) Correlation between sequence
+  hydrophobicity and surface-exposure pattern of database proteins.
+\newblock Prot Sci : 752--762.
+\bibAnnoteFile{Moelbert2004}
+
+\bibitem{Shaytan2009}
+Shaytan AK, Shaitan KV, Khokhlov AR (2009) Solvent accessible surface area of
+  amino acid residues in globular proteins: Correlations of apparent transfer
+  free engergies with experimental hydrophobicity scales.
+\newblock Biomacromolecules 10: 1224--1237.
+\bibAnnoteFile{Shaytan2009}
+
+\bibitem{Goldmanetal1998}
+Goldman N, Thorne JL, Jones DT (1998) Assessing the impact of secondary
+  structure and solvent accessibility on protein evolution.
+\newblock Genetics 149: 445--458.
+\bibAnnoteFile{Goldmanetal1998}
+
+\bibitem{Bloometal2006}
+Bloom JD, Drummond DA, Arnold FH, Wilke CO (2006) Structural determinants of
+  the rate of protein evolution in yeast.
+\newblock Mol Biol Evol 23: 1751--1761.
+\bibAnnoteFile{Bloometal2006}
+
+\bibitem{FranzosaXia2009}
+Franzosa EA, Xia Y (2009) Structural determinants of protein evolution are
+  context-sensitive at the residue level.
+\newblock Mol Biol Evol 26: 2387--2395.
+\bibAnnoteFile{FranzosaXia2009}
+
+\bibitem{Zhouetal2009}
+Zhou T, Weems M, Wilke CO (2009) Translationally optimal codons associate with
+  structurally sensitive sites in proteins.
+\newblock Mol Biol Evol 26: 1571--1580.
+\bibAnnoteFile{Zhouetal2009}
+
+\bibitem{FranzosaXia2012}
+Franzosa EA, Xia Y (2012) Independent effects of protein core size and
+  expression on structure-evolution relationships at the residue level.
+\newblock PLoS One 7: e46602.
+\bibAnnoteFile{FranzosaXia2012}
+
+\bibitem{Scherrer2012}
+Scherrer MP, Meyer AG, Wilke CO (2012) Modeling coding-sequence evolution
+  within the context of residue solvent accessibility.
+\newblock BMC Evol Biol 12: 179.
+\bibAnnoteFile{Scherrer2012}
+
+\bibitem{MeyerWilke2012}
+Meyer AG, Wilke CO (2012) Integrating sequence variation and protein structure
+  to identify sites under selection.
+\newblock Mol Biol Evol .
+\bibAnnoteFile{MeyerWilke2012}
+
+\bibitem{ConantStadler2009}
+Contant GC, Stadler PF (2009) Solvent exposure imparts similar selective
+  pressures across a range of yeast proteins.
+\newblock Mol Biol Evol 26: 1155--1161.
+\bibAnnoteFile{ConantStadler2009}
+
+\bibitem{RostSander1994}
+Rost B, Sander C (1994) Conservation and prediction of solvent accessibility in
+  protein families.
+\newblock Proteins 20: 216--226.
+\bibAnnoteFile{RostSander1994}
+
+\bibitem{Pollastrietal2002}
+Pollastri G, Baldi P, Fariselli P, Casadio R (2002) Prediction of coordination
+  number and relative solvent accessibility in proteins.
+\newblock Proteins 47: 142--153.
+\bibAnnoteFile{Pollastrietal2002}
+
+\bibitem{KimPark2004}
+Kim H, Park H (2004) Prediction of protein relative solvent accessibility with
+  support vector machines and long-range interaction {3D} local descriptor.
+\newblock Proteins 54: 557--562.
+\bibAnnoteFile{KimPark2004}
+
+\bibitem{NguyenRajapakse2005}
+Nguyen MN, Rajapakse JC (2005) Prediction of protein relative solvent
+  accessibility with a two-stage {SVM} approach.
+\newblock Proteins 59: 30--37.
+\bibAnnoteFile{NguyenRajapakse2005}
+
+\bibitem{Levy2010}
+Levy ED (2010) A simple definition of structural regions in proteins and its
+  use in analyzing interface evolution.
+\newblock J Mol Biol 403: 660--670.
+\bibAnnoteFile{Levy2010}
+
+\bibitem{Chengetal2006}
+Cheng J, Sweredoski MJ, Baldi P (2006) {DOMpro:} protein domain prediction
+  using profiles, secondary structure, relative solvent accessibility, and
+  recursive neural networks.
+\newblock Data Mining and Knowledge Discovery 13: 1--10.
+\bibAnnoteFile{Chengetal2006}
+
+\bibitem{ChenZhou2005}
+Chen H, Zhou HX (2005) Prediction of solvent accessibility and sites of
+  deleterious mutations from protein sequence.
+\newblock Nucl Acids Res 33: 3193--3199.
+\bibAnnoteFile{ChenZhou2005}
+
+\bibitem{WangDunbrack2003}
+Wang G, Dunbrack RL (2003) {PISCES:} a protein sequence culling server.
+\newblock Bioinformatics 19: 1589--1591.
+\bibAnnoteFile{WangDunbrack2003}
+
+\bibitem{Wolfenden1981}
+Wolfenden R, Anderson L, Cullis PM, Southgate CCB (1981) Affinities of amino
+  acid side chains for solvent water.
+\newblock Biochemistry : 849--855.
+\bibAnnoteFile{Wolfenden1981}
+
+\bibitem{Kyte1981}
+Kyte J, Doolittle RF (1982) A simple method for displaying the hydropathic
+  character of a protein.
+\newblock J Mol Biol 157: 105--132.
+\bibAnnoteFile{Kyte1981}
+
+\bibitem{Fauchere1983}
+Fauchere JL, Pliska VE (1983) Hydrophobic parameters of amino-acid side chains
+  from the partitioning of {N-acetyl-amino-acid} amides.
+\newblock Eur J Med Chem 18: 369-375.
+\bibAnnoteFile{Fauchere1983}
+
+\bibitem{Radzicka1988}
+Radzicka A, Wolfenden R (1988) Comparing the polarities of the amino acids:
+  side-chain distribution coefficients between the vapor phase, cyclohexane,
+  1-octanol, and neutral aqueous solution.
+\newblock Biochem 27: 1664--1670.
+\bibAnnoteFile{Radzicka1988}
+
+\bibitem{MacCallum2007}
+MacCallum JL, Bennett WFD, Tieleman DP (2007) Partitioning of amino acid side
+  chains into lipid bilayers: results from computer simulations and comparison
+  to experiment.
+\newblock J Gen Physiol 129: 371--377.
+\bibAnnoteFile{MacCallum2007}
+
+\bibitem{Moon2011}
+Moon CP, Fleming KG (2011) Side chain hydrophobicity scales derived from
+  transmembrane protein folding into lipid bilayers.
+\newblock Proc Natl Acad Sci USA 108: 10174--10177.
+\bibAnnoteFile{Moon2011}
+
+\bibitem{Wimley1996}
+Wimley WC, Creamer TP, White SH (1996) Solvation energies of amino acid side
+  chains and backbone in a family of host-guest pentapeptides.
+\newblock Biochem 35: 5109--5124.
+\bibAnnoteFile{Wimley1996}
+
+\bibitem{Kabsch1983}
+Kabsch W, Sander C (1983) Dictionary of protein secondary structure: pattern
+  recognition of hydrogen-bonded and geometrical features.
+\newblock Biopolymers 22: 2577--2637.
+\bibAnnoteFile{Kabsch1983}
+
+\bibitem{LeeRichards1971}
+Lee B, Richards FM (1971) The interpretation of protein structures: estimation
+  of static accessibility.
+\newblock J Mol Biol 55: 379--400.
+\bibAnnoteFile{LeeRichards1971}
+
+\end{thebibliography}
