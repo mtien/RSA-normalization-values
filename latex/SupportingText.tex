@@ -84,40 +84,9 @@ Valine           & $166$ & $166$ & $165$ & $165$ & & $184$ & $177$ & $174$ & $17
 \end{tabular}
 \end{center}
 
-\bigskip
-
-\noindent Table S2. Bin cutoffs used to define the ALLOWED ($>97\%$ of data) and the CORE ($>80\%$ of data) regions. For each region and amino acid, bins with as many or fewer observations as listed were discarded.
-
-\begin{center}
-\footnotesize
-\begin{tabular}{lcccccccc}
-Residue & ALLOWED & CORE \\
-\hline Alanine   & $4$ & $47$ \\
-Arginine         & $2$ & $23$ \\
-Asparagine       & $2$ & $15$ \\
-Aspartate        & $3$ & $20$ \\
-Cysteine         & $0$ & $\phantom{0}5$ \\
-Glutamate        & $3$ & $34$ \\
-Glutamine        & $2$ & $18$ \\
-Glycine          & $2$ & $15$ \\
-Histidine        & $1$ & $\phantom{0}9$ \\
-Isoleucine       & $6$ & $40$ \\
-Leucine          & $7$ & $59$ \\
-Lysine           & $3$ & $27$ \\
-Methionine       & $0$ & $\phantom{0}8$ \\
-Phenylalanine    & $2$ & $20$ \\
-Proline          & $7$ & $80$ \\
-Serine           & $2$ & $27$ \\
-Threonine        & $3$ & $33$ \\
-Tryptophan       & $0$ & $\phantom{0}8$ \\
-Tyrosine         & $2$ & $18$ \\
-Valine           & $7$ & $50$ \\
-\hline
-\end{tabular}
-\end{center}
 
 \newpage
-\noindent Table S3. Backbone conformation of maximally exposed trimer structures. Multiple rows per residue indicate alternative conformations with comparable solvent exposure.
+\noindent Table S2. Backbone conformation of maximally exposed trimer structures. Multiple rows per residue indicate alternative conformations with comparable solvent exposure.
 
 
 \begin{center}
@@ -175,7 +144,7 @@ Valine          & $-56.2^{\circ}$ & $-31.7^{\circ}$ & & $-55^{\circ}$ & $-25^{\c
 \end{center}
 
 \newpage
-\noindent Table S4. Hydrophobicity scales derived in this work.
+\noindent Table S3. Hydrophobicity scales derived in this work.
 \bigskip
 
 \centerline{
@@ -215,16 +184,39 @@ $^\text{d}$Fraction of 95\% buried residues, with $\text{RSA}<0.05$.
 }
 
 \newpage
+\bigskip
 
-\subsection*{Supporting Text}
+\noindent Table S4. Bin cutoffs used to define the ALLOWED ($>97\%$ of data) and the CORE ($>80\%$ of data) regions. For each region and amino acid, bins with as many or fewer observations as listed were discarded.
 
-\subsubsection*{Exhaustive surveying of model tripeptides}
+\begin{center}
+\begin{tabular}{lcccccccc}
+Residue & ALLOWED & CORE \\
+\hline Alanine   & $4$ & $47$ \\
+Arginine         & $2$ & $23$ \\
+Asparagine       & $2$ & $15$ \\
+Aspartate        & $3$ & $20$ \\
+Cysteine         & $0$ & $\phantom{0}5$ \\
+Glutamate        & $3$ & $34$ \\
+Glutamine        & $2$ & $18$ \\
+Glycine          & $2$ & $15$ \\
+Histidine        & $1$ & $\phantom{0}9$ \\
+Isoleucine       & $6$ & $40$ \\
+Leucine          & $7$ & $59$ \\
+Lysine           & $3$ & $27$ \\
+Methionine       & $0$ & $\phantom{0}8$ \\
+Phenylalanine    & $2$ & $20$ \\
+Proline          & $7$ & $80$ \\
+Serine           & $2$ & $27$ \\
+Threonine        & $3$ & $33$ \\
+Tryptophan       & $0$ & $\phantom{0}8$ \\
+Tyrosine         & $2$ & $18$ \\
+Valine           & $7$ & $50$ \\
+\hline
+\end{tabular}
+\end{center}
 
-To find the theoretical maximum solvent accessibility (SA) for each amino acid X, we computationally constructed Gly-X-Gly tripeptides. Each tripeptide was modeled by specifying coordinates of each constituent atom using bond lengths and angles from our empirically mined protein structures. Once constructed, we exhaustively rotated $\phi$ and $\psi$ dihedral backbone angles in discrete $1^\circ$ increments, holding $\omega$ constant at $180^\circ$. For each $(\phi, \psi)$ combination, we additionally rotated through all possible $\chi$ rotamer angles, as found in the Dunbruck Rotamer Database \cite{WangDunbrack2003}. Rotamer angles were grouped into three $120^\circ$ sectors (60$^\circ$, -60$^\circ$, and 180$^\circ$) and averaged within each sector. For amino acids where the side chain could assume more than ten distinct rotamer conformations (e.g. for L, I, M, K, N), we selected ten rotamer conformations at random instead of exhaustively enumerating all rotamer conformations. A different set of randomly chosen rotamer conformations was generated for each combination of $(\phi, \psi)$ angles. 
-
-For each tripeptide conformation examined, a corresponding PDB file was created and inputted into the program DSSP \cite{Kabsch1983} to compute the SA of amino acid X. For each $(\phi, \psi)$ combination, we recorded the largest SA value from all rotamer variations examined.
-
-\subsubsection*{Tripeptide construction}
+\newpage
+\subsection*{Supporting Text -- Tripeptide construction}
 
 We construct tripeptides by placing atoms one-by-one at the correct location in 3D space. We always begin with the N-terminus residue, which we place at the origin: The $\alpha$ carbon is placed at coordinates $(0,0,0)$, and the carbonyl carbon is placed at $(1.52, 0, 0)$, reflecting the 1.52\AA\ bond length between a carbonyl group and a carbon atom. Next, the nitrogen atom is placed at $(\ell \cos{\theta}, \ell \sin{\theta}, 0)$, where $\ell$ is the bond length and $\theta$ is the bond angle. To ensure that the constructed residue is in the L-conformation, the nitrogen atom is rotated positively from the $x$-axis. 
 
@@ -272,9 +264,6 @@ S=\sqrt{K^2[-I^2x^2+J^2K^2(\ell-x)(\ell+x)]}.\label{eq:const2}
 These equations for $x$, $y$, and $z$ yield two possible solutions; the first corresponds to a dihedral angle of $0^\circ$ from $ABC$, and the second corresponds to a dihedral angle of $180^\circ$ from $ABC$. We arbitrarily selected one of these solutions. We then rotated the point X around $\mathbf{b}$ until it was located at the appropriate dihedral angle $\tau$ relative to ABC.
 
 Once atom X is placed at position $(x, y, z)$, we translate these coordinates back to the original coordinate system in which C is not at the origin.
-
-\bibliographystyle{unsrt}
-\bibliography{bibliography}
 
 
 \end{document}

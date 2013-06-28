@@ -195,4 +195,22 @@ Lee B, Richards FM (1971) The interpretation of protein structures: estimation
 \newblock J Mol Biol 55: 379--400.
 \bibAnnoteFile{LeeRichards1971}
 
+\bibitem{Morrisetal1992}
+Morris AL, MacArthur MW, Hutchinson EG, Thornton JM (1992) Stereochemical
+  quality of protein structure coordinates.
+\newblock Proteins 12: 345--364.
+\bibAnnoteFile{Morrisetal1992}
+
+\bibitem{Laskowskietal1993}
+Laskowski RA, MacArthur MW, Moss DS, Thornton JM (1993) {PROCHECK} -- a program
+  to check the stereochemical quality of protein structures.
+\newblock J App Cryst 26: 283--291.
+\bibAnnoteFile{Laskowskietal1993}
+
+\bibitem{Tienetal2013}
+Tien MZ, Sydykova DK, Meyer AG, Wilke CO (2013) {PeptideBuilder:} a simple
+  {Python} library to generate model peptides.
+\newblock PeerJ 1: e80.
+\bibAnnoteFile{Tienetal2013}
+
 \end{thebibliography}
