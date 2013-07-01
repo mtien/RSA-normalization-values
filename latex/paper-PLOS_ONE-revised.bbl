@@ -139,6 +139,12 @@ Wang G, Dunbrack RL (2003) {PISCES:} a protein sequence culling server.
 \newblock Bioinformatics 19: 1589--1591.
 \bibAnnoteFile{WangDunbrack2003}
 
+\bibitem{Morrisetal1992}
+Morris AL, MacArthur MW, Hutchinson EG, Thornton JM (1992) Stereochemical
+  quality of protein structure coordinates.
+\newblock Proteins 12: 345--364.
+\bibAnnoteFile{Morrisetal1992}
+
 \bibitem{Wolfenden1981}
 Wolfenden R, Anderson L, Cullis PM, Southgate CCB (1981) Affinities of amino
   acid side chains for solvent water.
@@ -195,11 +201,22 @@ Lee B, Richards FM (1971) The interpretation of protein structures: estimation
 \newblock J Mol Biol 55: 379--400.
 \bibAnnoteFile{LeeRichards1971}
 
-\bibitem{Morrisetal1992}
-Morris AL, MacArthur MW, Hutchinson EG, Thornton JM (1992) Stereochemical
-  quality of protein structure coordinates.
-\newblock Proteins 12: 345--364.
-\bibAnnoteFile{Morrisetal1992}
+\bibitem{KawashimaKanehisa2000}
+Kawashima S, Kanehisa M (2000) {AAindex:} amino acid index database.
+\newblock Nucleic Acids Res 28: 374.
+\bibAnnoteFile{KawashimaKanehisa2000}
+
+\bibitem{TomiiKanehisa1996}
+Tomii K, Kanehisa M (1996) Analysis of amino acid indices and mutation matrices
+  for sequence comparison and structure prediction of proteins.
+\newblock Protein Eng 9: 27--36.
+\bibAnnoteFile{TomiiKanehisa1996}
+
+\bibitem{Kawashimaetal2008}
+Kawashima S, Pokarowski P, Pokarowska M, Kolinski A, Katayama T, et~al. (2008)
+  {AAindex:} amino acid index database, progress report 2008.
+\newblock Nucleic Acids Res 36: D202--D205.
+\bibAnnoteFile{Kawashimaetal2008}
 
 \bibitem{Laskowskietal1993}
 Laskowski RA, MacArthur MW, Moss DS, Thornton JM (1993) {PROCHECK} -- a program

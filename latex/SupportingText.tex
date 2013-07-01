@@ -15,9 +15,7 @@
 \begin{document}
 
 \begin{center}
-\Large\textbf{Maximum allowed solvent accessibilites\\of residues in proteins}\\
-\large\mbox{}\\
-\textbf{Supporting Information}
+\large\textbf{Supporting Information for ``Maximum allowed solvent accessibilites of residues in proteins''}\\
 \end{center}
 
 \bigskip
@@ -26,34 +24,37 @@
 \bigskip
 
 \subsection*{Supporting Figures}
-\centerline{\includegraphics[width=3.5in]{figures/Alanine_RSA_distribution.pdf}}
-
-\noindent Figure S1. Distribution of RSA values for alanine. RSA was calculated using our theoretically determined normalization values. This distribution is highly non-normal with a strong right skew. Therefore, mean RSA is a poor measure of center for this distribution. Similarly skewed distributions are found for most amino acids.
-
-\newpage
 \centerline{\includegraphics[width=6in]{figures/Ala_Rama_HSV_ALL_edited.pdf}}
 
-\noindent Figure S2. Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. All non-empty bins are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for non-empty bins in (A).
+\noindent Figure S1. Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. All non-empty bins are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for non-empty bins in (A).
 
 \vspace*{.5in}
 
 \centerline{\includegraphics[width=6in]{figures/Ala_Rama_HSV_GENEROUS_edited.pdf}}
 
-\noindent Figure S3. Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. All non-empty bins in the GENEROUS regions are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for all bins in the GENEROUS region.
+\noindent Figure S2. Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. All non-empty bins in the GENEROUS regions are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for all bins in the GENEROUS region.
 
 \newpage
 
 \centerline{\includegraphics[width=6in]{figures/Ala_Rama_HSV_CORE_edited.pdf}}
 
-\noindent Figure S4. Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. All bins in the CORE region are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for all bins in the CORE region.
+\noindent Figure S3. Ramachandran plots for empirical and theoretical maximum SA values of alanine. (A) Empirical maximum SA values for each $5^\circ$ by $5^\circ$ bin. All bins in the CORE region are shown. (B) Theoretical maximum SA values, as determined by computational modeling, shown for all bins in the CORE region.
 
+
+\vspace*{.5in}
+
+\centerline{\includegraphics[width=3.5in]{figures/Alanine_RSA_distribution.pdf}}
+
+\noindent Figure S4. Distribution of RSA values for alanine. RSA was calculated using our theoretically determined normalization values. This distribution is highly non-normal with a strong right skew. Therefore, mean RSA is a poor measure of center for this distribution. Similarly skewed distributions are found for most amino acids.
 
 \newpage
+
+
 \subsection*{Supporting Tables}
 
 
 
-\noindent Table S1. Maximum SA values observed in the empirical and the theoretical data sets.
+\noindent Table S1. Maximum SA values (in \AA$^2$) observed in the empirical and the theoretical data sets.
 
 \begin{center}
 \scriptsize
@@ -177,8 +178,8 @@ Valine & 0.864 & 0.857 & 0.25 & 0.494\\
 
 {\small
 \noindent
-$^\text{a}$Scale based on mean RSA, as calculated using the theoretially derived SA normalization values. The actual scale is defined as $1-(\text{mean RSA})$, to yield increasingly larger values for more hydrophobic residues.\\
-$^\text{b}$Same scale as in (a), but calculated using the empirically derived SA normalization values.\\
+$^\text{a}$Scale based on mean RSA, as calculated using the theoretially derived SA normalization values for the ALLOWED region. The actual scale is defined as $1-(\text{mean RSA})$, to yield increasingly larger values for more hydrophobic residues.\\
+$^\text{b}$Same scale as in (a), but calculated using the empirically derived SA normalization values for the ALLOWED region.\\
 $^\text{c}$Fraction of 100\% buried residues, with $\text{RSA}=0$ (corresponding to $\text{SA}<1\text{\AA}$).\\
 $^\text{d}$Fraction of 95\% buried residues, with $\text{RSA}<0.05$.
 }
