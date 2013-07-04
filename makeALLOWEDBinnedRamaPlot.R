@@ -1,4 +1,4 @@
-code<- "Ala"
+code<- "His"
 fileA<-paste(code, "_max_bins_ALLOWED",sep='')
 
 setwd("~/GitHub/RSA-normalization-values/AllowedBins/")

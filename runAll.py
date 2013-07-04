@@ -8,6 +8,8 @@ AA=["Ala", "Arg", "Asn", "Asp", "Cys", "Glu", "Gln", "Gly", "His", "Ile", "Leu",
 ##script_line="python getRoseRSA.py"
 ##os.system(script_line)
 
+AA=["His"]
+
 for aa in AA:
     ##script_line="python SeperateOverAndUnderRSA1.py " + aa
     ##os.system(script_line)
@@ -18,8 +20,8 @@ for aa in AA:
     ##script_line_max="python max_bins_with_population_restriction_theoretical.py " + aa
     ##os.system(script_line_max)
 
-    ##script_line_difference="python EmpVCalc_get_Diff_with_pop_restriction.py " + aa
-    ##os.system(script_line_difference)
+    script_line_difference="python EmpVCalc_get_Diff_with_pop_restriction.py " + aa
+    os.system(script_line_difference)
 
     script_line_max="python max_bin_all_data.py " + aa
     os.system(script_line_max)
