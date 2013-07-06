@@ -84,7 +84,7 @@ def changeRotamers(geoGly1, geoXX, geoGly2):
         if(AA in Rotamer_Variance_Branched):
             for i in rotamers:
                 rotamers2= [60, -60, 180]
-                rotamers2.pop(i)
+                rotamers2.remove(i)
                 for j in rotamers2:
                     geoXX.inputRotamers([i,j])
                     structure= makeTripeptide(geoGly1, geoXX, geoGly2)
@@ -106,7 +106,7 @@ def changeRotamers(geoGly1, geoXX, geoGly2):
             for i in range(0,10):
                 rotamers2=[60,-60,180]
                 rotamer_1=random.choice(rotamers)
-                rotamers2.pop(temp1)
+                rotamers2.remove(rotamer_1)
                 rotamer_2=random.choice(rotamers2)
                 rotamer_3=random.choice(rotamers)
                 geoXX.inputRotamers([rotamer_1, rotamer_2, rotamer_3])
@@ -120,7 +120,7 @@ def changeRotamers(geoGly1, geoXX, geoGly2):
             for i in range(0,10):
                 rotamers2=[60,-60,180]
                 rotamer_1=random.choice(rotamers)
-                rotamers2.pop(temp1)
+                rotamers2.remove(rotamer_1)
                 rotamer_2=random.choice(rotamers2)
                 rotamer_3=random.choice(rotamers)
                 geoXX.inputRotamers([rotamer_3, rotamer_1, rotamer_2])
@@ -140,25 +140,26 @@ def changeRotamers(geoGly1, geoXX, geoGly2):
 
     return max(acc_list)
 
-AA=sys.argv[1]
-ftemp="AnglesIteratedThroughAgain"+ AA
+if __name__=="__main__":
+    AA=sys.argv[1]
+    ftemp="AnglesIteratedThroughAgain"+ AA
 
-fileR=open(ftemp, 'w')
-fileR.write("SA\tPhi\tPsi\n")    
+    fileR=open(ftemp, 'w')
+    fileR.write("SA\tPhi\tPsi\n")    
 
-geoGly1= geometry("G")
-geoXX= geometry(resdict[AA])
-geoGly2= geometry("G")
-for i in range(-180 , 180):
-    print str(i)
-    for j in range(-180 , 180):
-        acc=0
-        geoXX.phi=i
-        geoGly2.psi=j
-        if(resdict[AA] not in Rotamer_Variance_0):
-            acc=changeRotamers(geoGly1, geoXX, geoGly2)
-        else:
-            acc=getSA( makeTripeptide(geoGly1, geoXX, geoGly2), resdict[AA])
-        fileR.write(str(acc)+ "\t"+ str(geoXX.phi) + "\t" + str(geoGly2.psi) +"\n")
+    geoGly1= geometry("G")
+    geoXX= geometry(resdict[AA])
+    geoGly2= geometry("G")
+    for i in range(-180 , 180):
+        print str(i)
+        for j in range(-180 , 180):
+            acc=0
+            geoXX.phi=i
+            geoGly2.psi_im1=j
+            if(resdict[AA] not in Rotamer_Variance_0):
+                acc=changeRotamers(geoGly1, geoXX, geoGly2)
+            else:
+                acc=getSA( makeTripeptide(geoGly1, geoXX, geoGly2), resdict[AA])
+            fileR.write(str(acc)+ "\t"+ str(geoXX.phi) + "\t" + str(geoGly2.psi_im1) +"\n")
 
-fileR.close()
+    fileR.close()
