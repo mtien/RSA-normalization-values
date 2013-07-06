@@ -79,6 +79,6 @@ data<-data.frame(AminoAcid=Aa,
                  max_emp_gen=max_emp_gen)
 
 
-setwd("~/GitHub/RSA-normalization-values/")
+setwd("~/GitHub/RSA-normalization-values/Correlation/")
 ##write.table(data2, file="NormalizationValuesByPercentDataCoverage.txt", quote=FALSE, row.names=FALSE, sep='\t')
 write.table(data, file="NormalizationValuesByPercentDataCoverageAndGenerous.txt", quote=FALSE, row.names=FALSE, sep='\t')

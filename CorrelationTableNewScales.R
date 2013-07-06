@@ -291,7 +291,7 @@ Corr_trans<-data.frame(rbind(wolfCorr= wolfCorr, wolfPval=wolfPval, kyteCorr=kyt
 colnames(Corr_trans)<-labels
 write.table(Corr_trans, "Hydrophobicity_Correlations_Transposed.txt",quote=FALSE, row.names=FALSE, sep='\t')
 
-C_labels<-c("Rose", "Theoretical Mean","Empirical Mean","100% Buried", "95% Buried")
+C_labels<-c("EXP","Rose", "Theoretical Mean","Empirical Mean","100% Buried", "95% Buried")
 C_table<- data.frame( Rose=Corr_trans$"Rose", Theoretical_Mean= Corr_trans$"Theoretical Mean", Empirical_Mean=Corr_trans$"Empirical Mean", buried_100= Corr_trans$"100_Buried",  buried_95=Corr_trans$"95_Buried")
 row.names(C_table)<-names(Correlations)[2:length(names(Correlations))]
-write.table(C_table, "Hydrophobicity_Correlations_Figure.txt",quote=FALSE, row.names=FALSE, sep='\t')
+write.table(C_table, "Hydrophobicity_Correlations_Figure.txt",quote=FALSE, row.names=TRUE, sep='\t')
