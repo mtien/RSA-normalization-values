@@ -223,18 +223,20 @@ We construct tripeptides by placing atoms one-by-one at the correct location in 
 
 All subsequent atoms are placed using the following procedure: We identify three reference atoms, which we refer to as A, B, and C. We translate these points such that C lies at the origin. We then calculate the coordinates $(x, y, z)$ of a fourth atom X at a bond length $\ell$ from C, a bond-angle $\theta$ relative to the CB vector (which we refer to as $\mathbf{b}$), and a dihedral angle $\tau$ relative to the ABC plane (see figure on next page). In this calculation, we proceed in two steps: We initially place the atom at the correct distance from C and correct bond angle relative to the CB vector, but with an arbitrary dihedral angle. We then rotate the atom around the CB vector to place it at the correct dihedral angle.
 
+
 To achieve the initial placement, we solve a system of three equations, corresponding to the three conditions that the distance from C to X should be $\ell$, the angle between CB and CX be $\theta$, and that X be in a plane perpendicular to ABC:
 \begin{align}
 x^2 + y^2 + z^2 &= \ell^2, \label{eq:dist}\\
 {\bf b} \cdot (x,y,z) &= \ell  ||{\bf b}|| \cos{\theta}, \label{eq:angle}\\
 Ix + Jy +Kz &=0. \label{eq:plane}
 \end{align}
-
-\centerline{\includegraphics[width=3.5in]{figures/atom_placement}}
-\noindent {\small Schematic drawing of the placement of an atom relative to three reference atoms A, B, and C. Atom C is assumed to be at the origin. The vector from C to B is denoted by $\mathbf{b}$, with coordinates $(x_\mathbf{b}, y_\mathbf{b}, z_\mathbf{b})$. Similarly, the vector from C to A is denoted by $\mathbf{a}$, with coordinates $(x_\mathbf{a}, y_\mathbf{a}, z_\mathbf{a})$. The distance from C to X is $\ell$, the angle between CB and CX is $\theta$, and the dihedral angle between ABC and CX is $\tau$.}
 \bigskip
 
 
+\centerline{\includegraphics[width=3.5in]{figures/atom_placement}}
+\noindent {\small Schematic drawing of the placement of an atom relative to three reference atoms A, B, and C. Atom C is assumed to be at the origin. The vector from C to B is denoted by $\mathbf{b}$, with coordinates $(x_\mathbf{b}, y_\mathbf{b}, z_\mathbf{b})$. Similarly, the vector from C to A is denoted by $\mathbf{a}$, with coordinates $(x_\mathbf{a}, y_\mathbf{a}, z_\mathbf{a})$. The distance from C to X is $\ell$, the angle between CB and CX is $\theta$, and the dihedral angle between ABC and CX is $\tau$.}
+
+\newpage
 \noindent Here, the constants $I$, $J$, and $K$ are coefficients of the target plane, and are obtained from the cross product of vectors $\mathbf{a}$ and $\mathbf{b}$:
 \begin{eqnarray} 
 I&=&(y_{\bf a}z_{\bf b})-(z_{\bf a}y_{\bf b}), \label{eq:I} \\
