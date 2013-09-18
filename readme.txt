@@ -47,15 +47,18 @@ I. Important Programs
 
 		
 II. Data Files
-	A. Xxx_geo files
+	A. Xxx_geo
 	B. AnglesIteratedThroughAgainXXX
 	C. XXX_SA_Over/Under, Xxx_Rose_RSA
 	D. XXX_max_bins_all
 	E. EmpericalVCalculated_diff_pop_nonZeroed_with_pop_restriction_XXX
-	G. NormalizationValues.txt
+	F. NormalizationValuesByPercentDataCoverage
+	G. NormalizationValuesByPercentDataCoverageAndGenerous.txt
 	H. Hydrophobicity_Scales_Updated.txt
-	I. Wolfden.txt, rose.txt, Kite_Doolittle.txt
-	J. cullpdb_pc20_res1.8_R0.25_d130517_chains3211
+	I. Wolfden.txt, rose.txt, Kite_Doolittle.txt, Fauchere.txt, Wimley.txt, Moon.txt, Radzicka.txt, MacCallum.txt 
+	J. cullpdb_pc30_res1.8_R0.25_d130607_chains4961.gz
+	K. Allowed, Core, and Generous Bins
+	
 
 ----------------------------------------------------------------------------------------------------------------
 
@@ -316,25 +319,33 @@ II. Data Files
 		Needs: "XXX_max_bins_all"
 		generated from program: "EmpVCalc_get_Diff_with_pop_restriction.py"
 
-	G. NormalizationValuesByPercentDataCoverage
+	F. NormalizationValuesByPercentDataCoverage
 		This is a tab delimited file is the output of the R script getMaximumValues.r. This is commonly
 		used in every R script to normalize things.
 
 		Needs: "Xxx_geo" and "AnglesIteratedThroughAgainXXX"
 		generated from program: "get_population_cut_offs.r"
+	
+	G. NormalizationValuesByPercentDataCoverageAndGenerous.txt
+		This is a tab delimited file is the output of the R script getMaximumValues.r. This is commonly
+		used in every R script to normalize things.
+
+		Needs: "Xxx_ALLOWED_geo" and "AnglesIteratedThroughAgain_ALLOWED_XXX"
+		generated from program: "get_population_cut_offs.r"
 
 	H. Hydrophobicity_Scales_Updated.txt
-		This is a csv file that contains the Empirical and Theoretical normalized RSA mean, median, square
-		root mean, box-cox mean, and the the percent buried residues. This is read into R as 
-		read.csv("Hydrophobicity_Scales_Updated.txt", row.names=1)
-
-		Needs: "NormalizationValues.txt", "Xxx_geo"
+		This is a tab delimited file that contains the Empirical and Theoretical normalized RSA mean, 
+		median, square root mean, box-cox mean, and the the percent buried residues. 
+		
+		Needs: "NormalizationValuesByPercentDataCoverageAndGenerous.txt", "Xxx_geo"
 		generated from program: "getMeanSA.r"
 	
-	I. Wolfden.txt, rose.txt, Kite_Doolittle.txt
+	I. Wolfden.txt, rose.txt, Kite_Doolittle.txt, Fauchere.txt, Wimley.txt, Moon.txt, Radzicka.txt, MacCallum.txt 
 		This is a tab delimited file that contains the hydrophobic values from each of the respective
 		papers.
 
-	J. cullpdb_pc20_res1.8_R0.25_d130517_chains3211
+	J. cullpdb_pc30_res1.8_R0.25_d130607_chains4961.gz
 		In the list below, the resolution and percent identity cutoffs are given in each filename. E.g., for cullpdb_pc20_res1.8_R0.25_d130517_chains3211, the percentage identity cutoff is 20%, the resolution cutoff is 1.8 angstroms, and the R-factor cutoff is 0.25. The list was generated on May 22, 2013. The number of chains in the list is 3211
 
+	K. Allowed, Core, and Generous Bins
+		Files used to make figures and to estimate resonable Ramachandran angle cut-offs
