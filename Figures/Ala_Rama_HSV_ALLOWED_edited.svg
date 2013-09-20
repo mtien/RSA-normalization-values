@@ -13,8 +13,8 @@
    viewBox="0 0 1152 432"
    version="1.1"
    id="svg2"
-   inkscape:version="0.48.2 r9819"
-   sodipodi:docname="Ala_Rama_HSV_ALLOWED.svg">
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Ala_Rama_HSV_ALLOWED_edited.svg">
   <metadata
      id="metadata21146">
     <rdf:RDF>
@@ -36,17 +36,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1439"
-     inkscape:window-height="895"
+     inkscape:window-width="1104"
+     inkscape:window-height="473"
      id="namedview21144"
      showgrid="false"
      inkscape:zoom="0.67"
-     inkscape:cx="728.47059"
-     inkscape:cy="270"
-     inkscape:window-x="1104"
-     inkscape:window-y="306"
+     inkscape:cx="641.70496"
+     inkscape:cy="359.99651"
+     inkscape:window-x="213"
+     inkscape:window-y="88"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg2" />
+     inkscape:current-layer="g21126" />
   <defs
      id="defs4">
     <g
@@ -52996,14 +52996,16 @@
          id="use21128"
          y="118.84375"
          x="1038.5"
-         xlink:href="#glyph0-9" />
+         xlink:href="#glyph0-9"
+         transform="translate(6.4,0)" />
       <use
          height="432"
          width="1152"
          id="use21130"
          y="118.84375"
          x="1050.5059"
-         xlink:href="#glyph0-10" />
+         xlink:href="#glyph0-10"
+         transform="translate(6.4,0)" />
       <use
          height="432"
          width="1152"
@@ -53017,35 +53019,49 @@
          id="use21134"
          y="118.84375"
          x="1067.5127"
-         xlink:href="#glyph0-9" />
+         xlink:href="#glyph0-9"
+         transform="translate(6.4,0)" />
       <use
          height="432"
          width="1152"
          id="use21136"
          y="118.84375"
          x="1079.5186"
-         xlink:href="#glyph0-12" />
+         xlink:href="#glyph0-12"
+         transform="translate(6.4,0)" />
       <use
          height="432"
          width="1152"
          id="use21138"
          y="118.84375"
          x="1088.5186"
-         xlink:href="#glyph0-13" />
+         xlink:href="#glyph0-13"
+         transform="translate(6.4,0)" />
       <use
          height="432"
          width="1152"
          id="use21140"
          y="118.84375"
          x="1098.5293"
-         xlink:href="#glyph0-14" />
+         xlink:href="#glyph0-14"
+         transform="translate(6.4,0)" />
       <use
          height="432"
          width="1152"
          id="use21142"
          y="118.84375"
          x="1102.5283"
-         xlink:href="#glyph0-15" />
+         xlink:href="#glyph0-15"
+         transform="translate(6.4,0)" />
+      <use
+         style="fill:#000000;fill-opacity:1"
+         height="432"
+         width="1152"
+         id="use21130-2"
+         y="118.84375"
+         x="1050.5059"
+         xlink:href="#glyph0-10"
+         transform="translate(-17.773484,0.00362628)" />
     </g>
   </g>
 </svg>

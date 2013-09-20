@@ -109,11 +109,31 @@ Kim H, Park H (2004) Prediction of protein relative solvent accessibility with
 \newblock Proteins 54: 557--562.
 \bibAnnoteFile{KimPark2004}
 
+\bibitem{Adamczaketal2004}
+Adamczak R, Porollo A, Meller J (2004) Accurate prediction of solvent
+  accessibility using neural networks-based regression.
+\newblock Proteins: Structure, Function, and Bioinformatics 56: 753--767.
+\bibAnnoteFile{Adamczaketal2004}
+
 \bibitem{NguyenRajapakse2005}
 Nguyen MN, Rajapakse JC (2005) Prediction of protein relative solvent
   accessibility with a two-stage {SVM} approach.
 \newblock Proteins 59: 30--37.
 \bibAnnoteFile{NguyenRajapakse2005}
+
+\bibitem{Petersenetal2009}
+Petersen B, {Nordahl Petersen} T, Andersen P, Nielsen M, Lundegaard C (2009) A
+  generic method for assignment of reliability scores applied to solvent
+  accessibility predictions.
+\newblock BMC Struct Biol 9: 51.
+\bibAnnoteFile{Petersenetal2009}
+
+\bibitem{SinghAhmad2009}
+Singh H, Ahmad S (2009) Context dependent reference states of solvent
+  accessibility derived from native protein sturctures and assessed by
+  predictability analysis.
+\newblock BMC Struct Biol 9: 25.
+\bibAnnoteFile{SinghAhmad2009}
 
 \bibitem{Levy2010}
 Levy ED (2010) A simple definition of structural regions in proteins and its
