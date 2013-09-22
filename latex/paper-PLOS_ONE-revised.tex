@@ -7,6 +7,7 @@
 \usepackage{verbatim}
 \usepackage{cite}
 \usepackage{float}
+\usepackage{color}
 \renewcommand{\bottomfraction}{1.}
 \renewcommand{\topfraction}{1.}
 \renewcommand{\textfraction}{0.}
@@ -138,13 +139,18 @@ We have derived significantly improved ASA normalization values. Our normalizati
 
 Our method of obtaining ASA normalization values was similar to the methods employed by Rose \emph{et al.}~\cite{Rose1985} and by Miller \emph{et al.}~\cite{Miller1987}. Rose \emph{et al.}~\cite{Rose1985} calculated their ASA normalization values by computing the ASA of residue X in Gly-X-Gly tripeptides whose conformations were chosen based on the average dihedral angles from available empirical data at the time. Miller \emph{et al.}~\cite{Miller1987}, on the other hand, calculated their ASA normalization values by computing the ASA of an extended trimer structure with $\phi = -120^\circ, \psi= 140^\circ$ and with side-chain conformations that were frequently observed in the empirical data. The key distinction between these previous approaches and ours lies in our exhaustive sampling of tripeptide conformations. By modeling all biophysically feasible discrete combinations of $\phi$ and $\psi$ angles and varying rotamers, we identified the ideal conformations which yield maximum allowed ASA. To pursue our modeling strategy, we developed a program that allowed us to easily construct peptide chains from scratch in arbitrary conformations (see Supporting Text for details).
 
+Our results are broadly consistent with a recent paper by Singh and Ahmad~\cite{SinghAhmad2009}. These authors did an extensive empirical survey of ASA values in tripeptides from PDB structures. They found that the highest observed ASA values were found in loops and turns, not in the extended conformation used by Miller \emph{et al.}. Their highest ASA values are generally consistent with ours. Further, Singh and Ahmad found that the highest observed ASA values were dependent on the neighboring residues around the focal residue. Finally, Singh and Ahmad showed that for RSA prediction from primary sequence, prediction accuracy could be improved by approximately 10\% if ASA values were normalized by (neighbor-dependent) highest observed ASA values rather than by ASA values observed in the extended conformation~\cite{SinghAhmad2009}. Our work serves as a useful complement to their work, by (i) providing, through molecular modeling, highest \emph{possible} ASA values rather than just highest \emph{observed} ASA values, by (ii) providing highest observed and highest possible ASA values as a function of backbone dihedral angle, and by (iii) demonstrating that improved RSA normalization yields empirical hydrophobicity scales that are more similar to experimentally measured ones.
+
+In our modeling approach, we calculated ASA values for Gly-X-Gly tripeptides. Other authors have considered normalizations based on Ala-X-Ala tripeptides \cite{Ahmadetal2003,NguyenRajapakse2005} or even neighbor-specific normalizations (i.e., a different normalization for each specific tripeptide \cite{SinghAhmad2009}). We chose Gly-X-Gly tripeptides because we wanted to calculate the highest possible ASA values of tripeptides, and glycines will generally occlude less solvent than alanines. From a practical perspective, we prefer a simple normalization scheme, and hence highest possible ASA values are attractive to us. However, for certain applications, it may be the case that neighbor-specific or backbone-specific normalizations are preferable. Singh and Ahmad \cite{SinghAhmad2009} provided neighbor-specific normalization values, but didn't control for backbone angles. We have shown here that maximum ASA values depend substantially on backbone angles (e.g.\ Fig.~\ref{fig:heatrama}), and we provide both highest observed and highest possible ASA values as a function of backbone angles (see ``Data and code availability'' in Methods). It is not known at this time whether neighbor-dependent or backbone-dependent normalization is preferable, and the answer may depend on the specific application. In principle, one could also normalize by both neighboring amino acids and backbone dihedral angles. A modeling approach such as ours could be employed to calculate the highest possible ASA values for any tripeptide in any conformation. The computational resources required would be substantial, however, since we would have to model 400 times more tripeptides than we did for the present work.
+
 Our theoretical modeling approach to exhaustively survey tripeptides has two potential shortcomings. First, for bond lengths and angles (except major dihedral angles), we used mean values observed in a large number of protein crystal structures. This approach neglects the variation around the mean, and there could be rare cases where unusually large bond lengths or unusual bond angles might cause ASA to become larger than estimated here. Such scenarios would have to be exceedingly rare, however, since we did not find a single case in which the largest empirically derived maximum ASA value exceeded the largest theoretically derived maximum ASA value (Table~\ref{tab:results}). Second, for amino acids with more than 10 distinct rotamer conformations, we did not exhaustively enumerate all possible conformations but only sampled 10 conformations at random. Thus, in principle it is possible that we missed a particular rotamer conformation that would have corresponded to a larger ASA value than the maximum we observed. Two arguments suggest that this issue is not likely a major source of error. First, again, we did not find a single case in which the empirical maximum ASA was larger than the theoretical maximum ASA. Second, maximum ASA varied slowly with $\phi$ and $\psi$, and by exhaustively enumerating conformations in $1^\circ$ steps, in effect we sampled the most exposed conformations multiple times, thus reducing the chance of missing a rare, large-ASA conformation.
 
-As RSA calculations are based on the Gly-X-Gly framework, we excluded all chain terminating residues from both the empirical and the theoretical analysis. Even with our improved ASA normalization values, then, chain-terminating residues may still display $\text{RSA}>1$. We therefore recommend that future analyses making use of RSA similarly exclude any chain-terminating residues, as their RSA estimates will not be precise. Suitable normalization values for chain-terminating residues are not available at present. 
+As our RSA calculations are based on ASAs of tripeptides, we excluded all chain terminating residues from both the empirical and the theoretical analysis. Even with our improved ASA normalization values, then, chain-terminating residues may still display $\text{RSA}>1$. We therefore recommend that future analyses making use of RSA similarly exclude any chain-terminating residues, as their RSA estimates will not be precise. Suitable normalization values for chain-terminating residues are not available at present. 
 
 The normalization values we have derived here are, strictly speaking, only valid for solvent-accessible surface areas calculated with the DSSP program \cite{Kabsch1983}. However, more generally, we expect them to be correct as long as solvent accessibility is calculated according to the definition of Lee and Richards \cite{LeeRichards1971}, which assumes that a sphere of radius 1.4\AA\ is rolled over the surface of the molecule. For cases in which solvent accessibility is calculated differently, our results suggest that one can follow an empirical approach to normalization. In other words, one need not exhaustively evaluate tripeptides, as we have done here. Instead, one can obtain a representative sample of structures from the protein data bank, exclude all terminal residues and residues in unusual conformations, and then find for each amino acid the maximum solvent accessibility within that data set, according to one's chosen definition of solvent accessibility. As Table~\ref{tab:results} shows, this empirical approach should generally yield results that are quite similar to the theoretical normalization values.
 
-In many applications, specifically in the context of sequence evolution, RSA is treated as a site-specific property that is invariant under mutation. While RSA values of homologous structures tend to be strongly correlated \cite{RostSander1994,Zhouetal2009}, individual sites, in particular exposed ones, can show substantial RSA variability \cite{RostSander1994}. In this context, it is important to note that one potential source of RSA variability in previous studies was RSA normalization. For example, Ref.~\cite{RostSander1994} used the Rose scale, which differs quite substantially from the scale we propose here. In particular, the corrections we propose to the Rose scale range from 4\% (for Leu) to 18\% (for Asp), and are approximately uniformly distributed in that range over the 20 amino acids. Thus, many scenarios are possible under which a substitution that might not change RSA under our scale might change it by over 10\% under the Rose scale. A detailed analysis of RSA variability among homologous structures is beyond the scope of this work, but should be undertaken in future work.
+In many applications, specifically in the context of sequence evolution, RSA is treated as a site-specific property that is invariant under mutation. While RSA values of homologous structures tend to be strongly correlated \cite{RostSander1994,Zhouetal2009}, individual sites, in particular exposed ones, can show substantial RSA variability \cite{RostSander1994}. In this context, we would like to emphasize that one potential source of RSA variability in previous studies was RSA normalization. For example, Ref.~\cite{RostSander1994} used the Rose scale, which differs quite substantially from the scale we propose here. In particular, the corrections we propose to the Rose scale range from 4\% (for Leu) to 18\% (for Asp), and are approximately uniformly distributed in that range over the 20 amino acids. Thus, one can envision scenarios under which a substitution that might not change RSA under our scale might change it by over 10\% under the Rose scale.
+At the same time, we have to realize that RSA can show variability even in the absence of mutation, in particular for exposed residues. A residue in a surface loop will undergo thermodynamic fluctuations, and its solvent exposure state will vary over time as neighboring residues move closer in or further out. By contrast, a residue in the core will likely remain solvent-occluded at all times. To obtain a reliable RSA value for a surface residue, one would thus ideally calculate an average over a thermodynamic ensemble of structures. A detailed analysis of RSA variability under thermodynamic fluctuations and among homologous structures is beyond the scope of this work but should be undertaken in the future.
 
 The comparison between experimentally and empirically derived hydrophobicity scales has been a persistent topic in biochemistry. As of this writing, the AAIndex database \cite{KawashimaKanehisa2000} contains over 40 scales related to amino acid hydrophobicity or polarity. While these scales tend to cluster \cite{TomiiKanehisa1996,Kawashimaetal2008}, there are substantial dissimilarities among hydrophobicity scales, and any two scales within the hydrophobicity cluster may not correlate that well. Any further insight into the mechanisms that cause differences among scales derived under different conditions or using different methodologies would improve our understanding of protein biochemistry. In particular, resolving discrepancies between empirically-derived data and experimentally derived thermodynamics of hydrophobicity could provide crucial insight into algorithms of protein-structure prediction and de-novo protein folding. 
 
@@ -183,7 +189,7 @@ We calculated empirical hydrophobicity scales on the same set of 3197 crystal st
 
 Fraction 100\% buried was calculated for each amino acid as the percent of times the program DSSP reported $\text{ASA}<1$\AA\ for each occurrence of that amino acid in the data set. Fraction 95\% buried was calculated for each amino acid as the percent of times that amino acid had an RSA value $<0.05$, where RSA was calculated using the theoretical normalization values of Table~\ref{tab:results} (ALLOWED region).
 
-\subsection*{Data and code deposition}
+\subsection*{Data and code availability}
 All results and all computer code used to generate these results have been deposited to GitHub.com (https://github.com/mtien/RSA-normalization-values). This inlcudes maximum observed ASA values (both empirical and theoretical) as a function of backbone dihedral angles.
 
 \section*{Acknowledgments}
@@ -191,8 +197,267 @@ All results and all computer code used to generate these results have been depos
 We thank Jeff Gray for insightful discussions on this work.
 
 
-\bibliography{bibliography}
+%\bibliography{bibliography}
 
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{Chothia1976}
+Chothia C (1976) The nature of the accessible and buried surfaces in proteins.
+\newblock J Mol Biol : 1--14.
+\bibAnnoteFile{Chothia1976}
+
+\bibitem{Rose1985}
+Rose GD, Geselowitz AR, Lesser GJ, Lee RH, Zehfus MH (1985) Hydrophobicity of
+  amino acid residues in globular proteins.
+\newblock Science 229: 834--838.
+\bibAnnoteFile{Rose1985}
+
+\bibitem{Miller1987}
+Miller S, Janin J, Lesk AM, Chothia C (1987) Interior and surface of monomeric
+  proteins.
+\newblock J Mol Biol 196: 641--656.
+\bibAnnoteFile{Miller1987}
+
+\bibitem{Moelbert2004}
+Moelbert S, Emberly E, Tang C (2004) Correlation between sequence
+  hydrophobicity and surface-exposure pattern of database proteins.
+\newblock Prot Sci : 752--762.
+\bibAnnoteFile{Moelbert2004}
+
+\bibitem{Shaytan2009}
+Shaytan AK, Shaitan KV, Khokhlov AR (2009) Solvent accessible surface area of
+  amino acid residues in globular proteins: Correlations of apparent transfer
+  free engergies with experimental hydrophobicity scales.
+\newblock Biomacromolecules 10: 1224--1237.
+\bibAnnoteFile{Shaytan2009}
+
+\bibitem{Goldmanetal1998}
+Goldman N, Thorne JL, Jones DT (1998) Assessing the impact of secondary
+  structure and solvent accessibility on protein evolution.
+\newblock Genetics 149: 445--458.
+\bibAnnoteFile{Goldmanetal1998}
+
+\bibitem{Bloometal2006}
+Bloom JD, Drummond DA, Arnold FH, Wilke CO (2006) Structural determinants of
+  the rate of protein evolution in yeast.
+\newblock Mol Biol Evol 23: 1751--1761.
+\bibAnnoteFile{Bloometal2006}
+
+\bibitem{FranzosaXia2009}
+Franzosa EA, Xia Y (2009) Structural determinants of protein evolution are
+  context-sensitive at the residue level.
+\newblock Mol Biol Evol 26: 2387--2395.
+\bibAnnoteFile{FranzosaXia2009}
+
+\bibitem{Zhouetal2009}
+Zhou T, Weems M, Wilke CO (2009) Translationally optimal codons associate with
+  structurally sensitive sites in proteins.
+\newblock Mol Biol Evol 26: 1571--1580.
+\bibAnnoteFile{Zhouetal2009}
+
+\bibitem{FranzosaXia2012}
+Franzosa EA, Xia Y (2012) Independent effects of protein core size and
+  expression on structure-evolution relationships at the residue level.
+\newblock PLoS One 7: e46602.
+\bibAnnoteFile{FranzosaXia2012}
+
+\bibitem{Scherrer2012}
+Scherrer MP, Meyer AG, Wilke CO (2012) Modeling coding-sequence evolution
+  within the context of residue solvent accessibility.
+\newblock BMC Evol Biol 12: 179.
+\bibAnnoteFile{Scherrer2012}
+
+\bibitem{MeyerWilke2012}
+Meyer AG, Wilke CO (2012) Integrating sequence variation and protein structure
+  to identify sites under selection.
+\newblock Mol Biol Evol .
+\bibAnnoteFile{MeyerWilke2012}
+
+\bibitem{ConantStadler2009}
+Contant GC, Stadler PF (2009) Solvent exposure imparts similar selective
+  pressures across a range of yeast proteins.
+\newblock Mol Biol Evol 26: 1155--1161.
+\bibAnnoteFile{ConantStadler2009}
+
+\bibitem{RostSander1994}
+Rost B, Sander C (1994) Conservation and prediction of solvent accessibility in
+  protein families.
+\newblock Proteins 20: 216--226.
+\bibAnnoteFile{RostSander1994}
+
+\bibitem{Pollastrietal2002}
+Pollastri G, Baldi P, Fariselli P, Casadio R (2002) Prediction of coordination
+  number and relative solvent accessibility in proteins.
+\newblock Proteins 47: 142--153.
+\bibAnnoteFile{Pollastrietal2002}
+
+\bibitem{KimPark2004}
+Kim H, Park H (2004) Prediction of protein relative solvent accessibility with
+  support vector machines and long-range interaction {3D} local descriptor.
+\newblock Proteins 54: 557--562.
+\bibAnnoteFile{KimPark2004}
+
+\bibitem{Adamczaketal2004}
+Adamczak R, Porollo A, Meller J (2004) Accurate prediction of solvent
+  accessibility using neural networks-based regression.
+\newblock Proteins: Structure, Function, and Bioinformatics 56: 753--767.
+\bibAnnoteFile{Adamczaketal2004}
+
+\bibitem{NguyenRajapakse2005}
+Nguyen MN, Rajapakse JC (2005) Prediction of protein relative solvent
+  accessibility with a two-stage {SVM} approach.
+\newblock Proteins 59: 30--37.
+\bibAnnoteFile{NguyenRajapakse2005}
+
+\bibitem{Petersenetal2009}
+Petersen B, {Nordahl Petersen} T, Andersen P, Nielsen M, Lundegaard C (2009) A
+  generic method for assignment of reliability scores applied to solvent
+  accessibility predictions.
+\newblock BMC Struct Biol 9: 51.
+\bibAnnoteFile{Petersenetal2009}
+
+\bibitem{SinghAhmad2009}
+Singh H, Ahmad S (2009) Context dependent reference states of solvent
+  accessibility derived from native protein sturctures and assessed by
+  predictability analysis.
+\newblock BMC Struct Biol 9: 25.
+\bibAnnoteFile{SinghAhmad2009}
+
+\bibitem{Levy2010}
+Levy ED (2010) A simple definition of structural regions in proteins and its
+  use in analyzing interface evolution.
+\newblock J Mol Biol 403: 660--670.
+\bibAnnoteFile{Levy2010}
+
+\bibitem{Chengetal2006}
+Cheng J, Sweredoski MJ, Baldi P (2006) {DOMpro:} protein domain prediction
+  using profiles, secondary structure, relative solvent accessibility, and
+  recursive neural networks.
+\newblock Data Mining and Knowledge Discovery 13: 1--10.
+\bibAnnoteFile{Chengetal2006}
+
+\bibitem{ChenZhou2005}
+Chen H, Zhou HX (2005) Prediction of solvent accessibility and sites of
+  deleterious mutations from protein sequence.
+\newblock Nucl Acids Res 33: 3193--3199.
+\bibAnnoteFile{ChenZhou2005}
+
+\bibitem{WangDunbrack2003}
+Wang G, Dunbrack RL (2003) {PISCES:} a protein sequence culling server.
+\newblock Bioinformatics 19: 1589--1591.
+\bibAnnoteFile{WangDunbrack2003}
+
+\bibitem{Morrisetal1992}
+Morris AL, MacArthur MW, Hutchinson EG, Thornton JM (1992) Stereochemical
+  quality of protein structure coordinates.
+\newblock Proteins 12: 345--364.
+\bibAnnoteFile{Morrisetal1992}
+
+\bibitem{Wolfenden1981}
+Wolfenden R, Anderson L, Cullis PM, Southgate CCB (1981) Affinities of amino
+  acid side chains for solvent water.
+\newblock Biochemistry : 849--855.
+\bibAnnoteFile{Wolfenden1981}
+
+\bibitem{Kyte1981}
+Kyte J, Doolittle RF (1982) A simple method for displaying the hydropathic
+  character of a protein.
+\newblock J Mol Biol 157: 105--132.
+\bibAnnoteFile{Kyte1981}
+
+\bibitem{Fauchere1983}
+Fauchere JL, Pliska VE (1983) Hydrophobic parameters of amino-acid side chains
+  from the partitioning of {N-acetyl-amino-acid} amides.
+\newblock Eur J Med Chem 18: 369-375.
+\bibAnnoteFile{Fauchere1983}
+
+\bibitem{Radzicka1988}
+Radzicka A, Wolfenden R (1988) Comparing the polarities of the amino acids:
+  side-chain distribution coefficients between the vapor phase, cyclohexane,
+  1-octanol, and neutral aqueous solution.
+\newblock Biochem 27: 1664--1670.
+\bibAnnoteFile{Radzicka1988}
+
+\bibitem{MacCallum2007}
+MacCallum JL, Bennett WFD, Tieleman DP (2007) Partitioning of amino acid side
+  chains into lipid bilayers: results from computer simulations and comparison
+  to experiment.
+\newblock J Gen Physiol 129: 371--377.
+\bibAnnoteFile{MacCallum2007}
+
+\bibitem{Moon2011}
+Moon CP, Fleming KG (2011) Side chain hydrophobicity scales derived from
+  transmembrane protein folding into lipid bilayers.
+\newblock Proc Natl Acad Sci USA 108: 10174--10177.
+\bibAnnoteFile{Moon2011}
+
+\bibitem{Wimley1996}
+Wimley WC, Creamer TP, White SH (1996) Solvation energies of amino acid side
+  chains and backbone in a family of host-guest pentapeptides.
+\newblock Biochem 35: 5109--5124.
+\bibAnnoteFile{Wimley1996}
+
+\bibitem{Ahmadetal2003}
+Ahmad S, Gromiha MM, Sarai A (2003) Real-value prediction of solvent
+  accessibility from amino acid sequence.
+\newblock Proteins 50: 629--635.
+\bibAnnoteFile{Ahmadetal2003}
+
+\bibitem{Kabsch1983}
+Kabsch W, Sander C (1983) Dictionary of protein secondary structure: pattern
+  recognition of hydrogen-bonded and geometrical features.
+\newblock Biopolymers 22: 2577--2637.
+\bibAnnoteFile{Kabsch1983}
+
+\bibitem{LeeRichards1971}
+Lee B, Richards FM (1971) The interpretation of protein structures: estimation
+  of static accessibility.
+\newblock J Mol Biol 55: 379--400.
+\bibAnnoteFile{LeeRichards1971}
+
+\bibitem{KawashimaKanehisa2000}
+Kawashima S, Kanehisa M (2000) {AAindex:} amino acid index database.
+\newblock Nucleic Acids Res 28: 374.
+\bibAnnoteFile{KawashimaKanehisa2000}
+
+\bibitem{TomiiKanehisa1996}
+Tomii K, Kanehisa M (1996) Analysis of amino acid indices and mutation matrices
+  for sequence comparison and structure prediction of proteins.
+\newblock Protein Eng 9: 27--36.
+\bibAnnoteFile{TomiiKanehisa1996}
+
+\bibitem{Kawashimaetal2008}
+Kawashima S, Pokarowski P, Pokarowska M, Kolinski A, Katayama T, et~al. (2008)
+  {AAindex:} amino acid index database, progress report 2008.
+\newblock Nucleic Acids Res 36: D202--D205.
+\bibAnnoteFile{Kawashimaetal2008}
+
+\bibitem{Laskowskietal1993}
+Laskowski RA, MacArthur MW, Moss DS, Thornton JM (1993) {PROCHECK} -- a program
+  to check the stereochemical quality of protein structures.
+\newblock J App Cryst 26: 283--291.
+\bibAnnoteFile{Laskowskietal1993}
+
+\bibitem{Tienetal2013}
+Tien MZ, Sydykova DK, Meyer AG, Wilke CO (2013) {PeptideBuilder:} a simple
+  {Python} library to generate model peptides.
+\newblock PeerJ 1: e80.
+\bibAnnoteFile{Tienetal2013}
+
+\end{thebibliography}
 \newpage
 
 \section*{Figure captions}

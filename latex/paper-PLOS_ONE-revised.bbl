@@ -209,6 +209,12 @@ Wimley WC, Creamer TP, White SH (1996) Solvation energies of amino acid side
 \newblock Biochem 35: 5109--5124.
 \bibAnnoteFile{Wimley1996}
 
+\bibitem{Ahmadetal2003}
+Ahmad S, Gromiha MM, Sarai A (2003) Real-value prediction of solvent
+  accessibility from amino acid sequence.
+\newblock Proteins 50: 629--635.
+\bibAnnoteFile{Ahmadetal2003}
+
 \bibitem{Kabsch1983}
 Kabsch W, Sander C (1983) Dictionary of protein secondary structure: pattern
   recognition of hydrogen-bonded and geometrical features.
